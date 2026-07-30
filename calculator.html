@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Long-Term Care Planning Calculator | Les Goldstein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#3E4E58;
+  --green:#8A6842;
+  --green2:#F3ECE0;
+  --bg:#FBF7EF;
+  --card:#fff;
+  --text:#2B2420;
+  --muted:#6B5D4F;
+  --border:#E1D4BF;
+  --warn:#a34a38;
+  --warnbg:#fff5f2;
+  --good:#8A6842;
+  --goodbg:#F3ECE0;
+  --gold:#B98A5E;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter', Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.45;
+}
+.header{
+  background:var(--navy);
+  color:white;
+  padding:18px 22px;
+}
+.header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+.brand strong{font-size:20px;display:block; font-family:'Source Serif 4',serif}
+.brand span{font-size:13px;color:#dfe9ee}
+.tag{font-size:13px;color:#e8f0f3;text-align:right}
+.wrap{max-width:1200px;margin:0 auto;padding:28px 18px 48px}
+.hero{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:22px;
+  align-items:stretch;
+  margin-bottom:22px;
+}
+.hero-main{
+  background:linear-gradient(135deg,#3E4E58,#6B7F8C);
+  color:#fff;
+  border-radius:18px;
+  padding:30px;
+}
+.hero-main h1{font-size:32px;line-height:1.15;margin:0 0 10px; font-family:'Source Serif 4',serif; font-weight:600}
+.hero-main p{margin:0;color:#eef3f4;font-size:16px;max-width:780px}
+.hero-note{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero-note strong{font-size:17px;margin-bottom:8px; font-family:'Source Serif 4',serif}
+.hero-note p{margin:0;color:var(--muted)}
+.layout{
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:22px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 4px 14px rgba(0,0,0,.035);
+}
+.card h2{font-size:21px;margin:0 0 6px; font-family:'Source Serif 4',serif; color:var(--navy); font-weight:600}
+.sub{font-size:13px;color:var(--muted);margin:0 0 18px}
+.section-title{
+  margin:22px 0 10px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--green);
+  font-weight:700;
+}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.field-grid.three{grid-template-columns:1fr 1fr 1fr}
+label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  color:#3f342b;
+  margin-bottom:6px;
+}
+input,select{
+  width:100%;
+  padding:11px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+  font-size:15px;
+  font-family:'Inter',sans-serif;
+}
+input:focus,select:focus{
+  outline:2px solid #d8c4a8;
+  border-color:var(--gold);
+}
+.helper{font-size:11px;color:var(--muted);margin-top:5px}
+.toggle-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.toggle{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:11px 12px;
+  cursor:pointer;
+  text-align:center;
+  font-weight:700;
+  background:white;
+}
+.toggle.active{
+  background:var(--green2);
+  border-color:var(--gold);
+  color:var(--navy);
+}
+.results-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.metric{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:15px;
+  background:#fbfaf7;
+}
+.metric.full{grid-column:1/-1}
+.metric .kicker{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--muted);
+}
+.metric .value{
+  font-size:24px;
+  font-weight:800;
+  margin-top:4px;
+  font-family:'Source Serif 4',serif;
+  color:var(--navy);
+}
+.metric.warn{background:var(--warnbg);border-color:#edc1b8}
+.metric.good{background:var(--goodbg);border-color:var(--gold)}
+.coverage-track{
+  height:18px;
+  background:#e8edef;
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:12px;
+}
+.coverage-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#B98A5E,#8A6842);
+}
+.summary-box{
+  margin-top:16px;
+  border-left:5px solid var(--gold);
+  background:#fdf7ee;
+  border-radius:10px;
+  padding:16px;
+}
+.summary-box strong{display:block;font-size:16px;margin-bottom:6px; font-family:'Source Serif 4',serif; color:var(--navy)}
+.compare{
+  margin-top:16px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+.compare-row{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr 1fr;
+  gap:0;
+}
+.compare-row>div{
+  padding:12px;
+  border-right:1px solid var(--border);
+  border-top:1px solid var(--border);
+  font-size:13px;
+}
+.compare-row>div:last-child{border-right:0}
+.compare-row.header>div{
+  background:var(--green2);
+  font-weight:700;
+  border-top:0;
+  color:var(--navy);
+}
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+}
+button{
+  flex:1;
+  border:0;
+  border-radius:10px;
+  padding:12px 14px;
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
+}
+.primary{background:var(--navy);color:#fff}
+.secondary{background:var(--green2);color:var(--navy);border:1px solid var(--border)}
+.cta{
+  margin-top:18px;
+  background:var(--green2);
+  border:1px solid #d8c4a8;
+  border-radius:14px;
+  padding:18px;
+}
+.cta strong{display:block;font-size:17px;margin-bottom:5px; font-family:'Source Serif 4',serif; color:var(--navy)}
+.disclaimer{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:18px;
+}
+.hide{display:none}
+@media(max-width:900px){
+  .hero,.layout{grid-template-columns:1fr}
+  .field-grid,.field-grid.three{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:1fr}
+  .metric.full{grid-column:auto}
+  .compare-row{grid-template-columns:1.2fr 1fr 1fr 1fr}
+  .header-inner{align-items:flex-start}
+}
+@media(max-width:620px){
+  .hero-main h1{font-size:26px}
+  .compare{overflow-x:auto}
+  .compare-row{min-width:650px}
+  .actions{flex-direction:column}
+}
+@media print{
+  body{background:white}
+  .header,.hero-note,.actions,.input-card{display:none!important}
+  .wrap{padding:0}
+  .hero{display:block}
+  .hero-main{border-radius:0;background:white;color:black;padding:0 0 18px}
+  .hero-main p{color:#444}
+  .layout{display:block}
+  .card{box-shadow:none;border:0;padding:0}
+  .results-card h2{margin-top:0}
+  .cta{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <strong>Les Goldstein</strong>
+      <span>Independent Long-Term Care Planning Specialist</span>
+    </div>
+    <div class="tag">Protect Your Retirement. Preserve Your Choices.</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-main">
+      <h1>What Could Long-Term Care Cost Your Family?</h1>
+      <p>Use this educational calculator to estimate future care costs, compare planning options, and see how much of the financial risk may remain with your family.</p>
+    </div>
+    <div class="hero-note">
+      <strong>One family. One plan. One situation at a time.</strong>
+      <p>The numbers are only the beginning. The right plan depends on your health, assets, income, family, and goals.</p>
+    </div>
+  </section>
+
+  <div class="layout">
+    <section class="card input-card">
+      <h2>Build Your Estimate</h2>
+      <p class="sub">Change any assumption. Results update instantly.</p>
+
+      <div class="section-title">Who are we planning for?</div>
+      <div class="toggle-row">
+        <div class="toggle active" id="singleToggle" onclick="setHousehold('single')">One Person</div>
+        <div class="toggle" id="coupleToggle" onclick="setHousehold('couple')">A Couple</div>
+      </div>
+
+      <div class="section-title">Personal timeline</div>
+      <div class="field-grid">
+        <div>
+          <label for="currentAge">Current age</label>
+          <input id="currentAge" type="number" min="40" max="95" value="60">
+        </div>
+        <div>
+          <label for="careAge">Age care may begin</label>
+          <input id="careAge" type="number" min="50" max="110" value="85">
+        </div>
+        <div>
+          <label for="careYears">Estimated years of care</label>
+          <input id="careYears" type="number" min="1" max="15" step="0.5" value="5">
+        </div>
+        <div>
+          <label for="householdRisk">People expected to need care</label>
+          <select id="householdRisk">
+            <option value="1">One person</option>
+            <option value="1.5">Possible care for both</option>
+            <option value="2">Plan fully for both</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-title">Care assumptions</div>
+      <div class="field-grid">
+        <div>
+          <label for="careSetting">Type of care</label>
+          <select id="careSetting" onchange="applySettingCost()">
+            <option value="custom">Custom amount</option>
+            <option value="home">Home care</option>
+            <option value="assisted">Assisted living</option>
+            <option value="nursing">Nursing facility</option>
+          </select>
+        </div>
+        <div>
+          <label for="monthlyCost">Monthly cost today</label>
+          <input id="monthlyCost" type="number" min="1000" step="500" value="15000">
+        </div>
+        <div>
+          <label for="careInflation">Annual care-cost inflation</label>
+          <input id="careInflation" type="number" min="0" max="12" step="0.1" value="5">
+        </div>
+        <div>
+          <label for="incomeAvailable">Monthly retirement income available for care</label>
+          <input id="incomeAvailable" type="number" min="0" step="500" value="3000">
+        </div>
+      </div>
+
+      <div class="section-title">Assets and protection</div>
+      <div class="field-grid">
+        <div>
+          <label for="savings">Assets available to self-fund</label>
+          <input id="savings" type="number" min="0" step="10000" value="1000000">
+        </div>
+        <div>
+          <label for="monthlyBenefit">Monthly insurance benefit today</label>
+          <input id="monthlyBenefit" type="number" min="0" step="100" value="7500">
+        </div>
+        <div>
+          <label for="benefitYears">Benefit period in years</label>
+          <input id="benefitYears" type="number" min="0" max="15" step="0.5" value="6">
+        </div>
+        <div>
+          <label for="benefitInflation">Annual benefit growth</label>
+          <input id="benefitInflation" type="number" min="0" max="10" step="0.1" value="3">
+        </div>
+        <div>
+          <label for="eliminationDays">Elimination period in days</label>
+          <input id="eliminationDays" type="number" min="0" max="365" value="90">
+        </div>
+        <div>
+          <label for="policyPool">Maximum policy benefit pool today</label>
+          <input id="policyPool" type="number" min="0" step="10000" value="540000">
+          <div class="helper">Use 0 if there is no known pool limit.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="primary" onclick="calculate()">Update Results</button>
+        <button class="secondary" onclick="resetCalculator()">Reset</button>
+      </div>
+    </section>
+
+    <section class="card results-card">
+      <h2>Your Estimated Long-Term Care Exposure</h2>
+      <p class="sub">Based on the assumptions entered—not a policy illustration.</p>
+
+      <div class="results-grid">
+        <div class="metric">
+          <div class="kicker">Years until care</div>
+          <div class="value" id="yearsUntilCare">25</div>
+        </div>
+        <div class="metric">
+          <div class="kicker">Future monthly care cost</div>
+          <div class="value" id="futureMonthlyCost">$0</div>
+        </div>
+        <div class="metric">
+          <div class="kicker">Projected total care cost</div>
+          <div class="value" id="totalCareCost">$0</div>
+        </div>
+        <div class="metric">
+          <div class="kicker">Future monthly insurance benefit</div>
+          <div class="value" id="futureMonthlyBenefit">$0</div>
+        </div>
+        <div class="metric">
+          <div class="kicker">Estimated insurance benefits</div>
+          <div class="value" id="insurancePaid">$0</div>
+        </div>
+        <div class="metric">
+          <div class="kicker">Retirement income applied to care</div>
+          <div class="value" id="incomeApplied">$0</div>
+        </div>
+        <div class="metric full warn" id="shortfallBox">
+          <div class="kicker">Potential amount funded from family assets</div>
+          <div class="value" id="shortfall">$0</div>
+        </div>
+        <div class="metric full">
+          <div class="kicker">Estimated share of care costs covered</div>
+          <div class="value" id="coveragePct">0%</div>
+          <div class="coverage-track"><div class="coverage-fill" id="coverageBar"></div></div>
+          <div class="helper" id="coverageText"></div>
+        </div>
+        <div class="metric full">
+          <div class="kicker">Estimated assets remaining after care</div>
+          <div class="value" id="assetsRemaining">$0</div>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <strong id="headline">Your plan leaves a significant gap.</strong>
+        <span id="interpretation"></span>
+      </div>
+
+      <div class="section-title">Compare three approaches</div>
+      <div class="compare">
+        <div class="compare-row header">
+          <div>Approach</div><div>Benefits</div><div>Family Cost</div><div>Assets Left</div>
+        </div>
+        <div class="compare-row">
+          <div>Self-fund only</div><div>$0</div><div id="selfFundCost">$0</div><div id="selfFundAssets">$0</div>
+        </div>
+        <div class="compare-row">
+          <div>Current assumptions</div><div id="currentBenefits">$0</div><div id="currentFamilyCost">$0</div><div id="currentAssets">$0</div>
+        </div>
+        <div class="compare-row">
+          <div>Stronger protection example</div><div id="strongBenefits">$0</div><div id="strongFamilyCost">$0</div><div id="strongAssets">$0</div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <strong>A calculator cannot tell you which plan is right.</strong>
+        A personalized review should consider health, marital status, retirement income, available assets, tax considerations, family support, and the exact terms of any insurance contract.
+      </div>
+
+      <div class="actions">
+        <button class="primary" onclick="window.print()">Print or Save Summary</button>
+      </div>
+
+      <p class="disclaimer">
+        For educational and illustrative purposes only. Results depend entirely on the assumptions entered and may differ materially from actual care costs, policy benefits, taxes, investment returns, claim eligibility, benefit triggers, elimination-period requirements, reimbursement rules, indemnity provisions, benefit-pool limits, and other contract terms. Insurance coverage is subject to underwriting and the terms of the issued policy.
+      </p>
+    </section>
+  </div>
+</div>
+
+<script>
+let household = 'single';
+
+const settingCosts = {
+  home: 9000,
+  assisted: 8500,
+  nursing: 15000
+};
+
+function money(n){
+  return new Intl.NumberFormat('en-US',{
+    style:'currency',currency:'USD',maximumFractionDigits:0
+  }).format(isFinite(n)?n:0);
+}
+function val(id){ return parseFloat(document.getElementById(id).value)||0; }
+
+function setHousehold(type){
+  household = type;
+  document.getElementById('singleToggle').classList.toggle('active', type==='single');
+  document.getElementById('coupleToggle').classList.toggle('active', type==='couple');
+  const risk = document.getElementById('householdRisk');
+  if(type==='single'){
+    risk.value='1';
+    risk.disabled=true;
+  }else{
+    risk.disabled=false;
+    if(risk.value==='1') risk.value='1.5';
+  }
+  calculate();
+}
+
+function applySettingCost(){
+  const setting = document.getElementById('careSetting').value;
+  if(settingCosts[setting]) document.getElementById('monthlyCost').value = settingCosts[setting];
+  calculate();
+}
+
+function calculateScenario(multiplierBenefit, addBenefitYears){
+  const currentAge=val('currentAge');
+  const careAge=val('careAge');
+  const careYears=val('careYears');
+  const risk=val('householdRisk');
+  const monthlyCost=val('monthlyCost');
+  const careInflation=val('careInflation')/100;
+  const incomeAvailable=val('incomeAvailable');
+  const savings=val('savings');
+  const monthlyBenefit=val('monthlyBenefit')*multiplierBenefit;
+  const benefitYears=Math.max(0,val('benefitYears')+addBenefitYears);
+  const benefitInflation=val('benefitInflation')/100;
+  const eliminationDays=val('eliminationDays');
+  const policyPool=val('policyPool')*multiplierBenefit;
+
+  const yearsUntilCare=Math.max(0,careAge-currentAge);
+  const futureMonthlyCost=monthlyCost*Math.pow(1+careInflation,yearsUntilCare);
+  const futureMonthlyBenefit=monthlyBenefit*Math.pow(1+benefitInflation,yearsUntilCare);
+  const careMonths=Math.max(0,careYears*12*risk);
+  const benefitMonths=Math.max(0,benefitYears*12*risk);
+  const eliminationMonths=eliminationDays/30.4375;
+  const totalCareCost=futureMonthlyCost*careMonths;
+  const incomeApplied=Math.min(totalCareCost, incomeAvailable*careMonths);
+  const payableMonths=Math.max(0,Math.min(benefitMonths,careMonths-eliminationMonths));
+  const monthlyInsurance=Math.min(futureMonthlyBenefit,futureMonthlyCost);
+  let insurancePaid=payableMonths*monthlyInsurance;
+  if(policyPool>0){
+    const futurePool=policyPool*Math.pow(1+benefitInflation,yearsUntilCare);
+    insurancePaid=Math.min(insurancePaid,futurePool);
+  }
+  const familyCost=Math.max(0,totalCareCost-incomeApplied-insurancePaid);
+  const assetsRemaining=savings-familyCost;
+  const covered=totalCareCost>0?Math.min(100,(incomeApplied+insurancePaid)/totalCareCost*100):0;
+
+  return {yearsUntilCare,futureMonthlyCost,futureMonthlyBenefit,totalCareCost,incomeApplied,insurancePaid,familyCost,assetsRemaining,covered};
+}
+
+function calculate(){
+  const r=calculateScenario(1,0);
+
+  document.getElementById('yearsUntilCare').textContent=r.yearsUntilCare.toFixed(0);
+  document.getElementById('futureMonthlyCost').textContent=money(r.futureMonthlyCost);
+  document.getElementById('futureMonthlyBenefit').textContent=money(r.futureMonthlyBenefit);
+  document.getElementById('totalCareCost').textContent=money(r.totalCareCost);
+  document.getElementById('insurancePaid').textContent=money(r.insurancePaid);
+  document.getElementById('incomeApplied').textContent=money(r.incomeApplied);
+  document.getElementById('shortfall').textContent=money(r.familyCost);
+  document.getElementById('assetsRemaining').textContent=money(r.assetsRemaining);
+  document.getElementById('coveragePct').textContent=r.covered.toFixed(1)+'%';
+  document.getElementById('coverageBar').style.width=r.covered+'%';
+  document.getElementById('coverageText').textContent=
+    money(r.insurancePaid+r.incomeApplied)+' of '+money(r.totalCareCost)+' is estimated to be covered by insurance benefits and available income.';
+
+  const shortfallBox=document.getElementById('shortfallBox');
+  shortfallBox.classList.remove('warn','good');
+  shortfallBox.classList.add(r.familyCost>0?'warn':'good');
+
+  const assetsEl=document.getElementById('assetsRemaining');
+  assetsEl.style.color=r.assetsRemaining<0?'#a34a38':'#8A6842';
+
+  const headline=document.getElementById('headline');
+  const interpretation=document.getElementById('interpretation');
+  if(r.familyCost<=0){
+    headline.textContent='Your assumptions fully cover the projected cost.';
+    interpretation.textContent=' Even so, actual policy terms, claims requirements, and future care costs should be reviewed carefully.';
+  }else if(r.assetsRemaining<0){
+    headline.textContent='The projected care need exceeds the assets available.';
+    interpretation.textContent=' Under these assumptions, your family could face a funding gap even after applying insurance benefits and retirement income.';
+  }else if(r.familyCost>r.totalCareCost*.4){
+    headline.textContent='A substantial portion of the risk remains with your family.';
+    interpretation.textContent=' Your current assumptions reduce the exposure, but a large amount may still need to come from retirement assets.';
+  }else{
+    headline.textContent='Your assumptions reduce much of the financial exposure.';
+    interpretation.textContent=' Some cost remains with your family, but the projected impact on assets is meaningfully lower than self-funding the entire event.';
+  }
+
+  const self=calculateScenario(0,0);
+  const strong=calculateScenario(1.5,2);
+
+  document.getElementById('selfFundCost').textContent=money(self.familyCost);
+  document.getElementById('selfFundAssets').textContent=money(self.assetsRemaining);
+  document.getElementById('currentBenefits').textContent=money(r.insurancePaid);
+  document.getElementById('currentFamilyCost').textContent=money(r.familyCost);
+  document.getElementById('currentAssets').textContent=money(r.assetsRemaining);
+  document.getElementById('strongBenefits').textContent=money(strong.insurancePaid);
+  document.getElementById('strongFamilyCost').textContent=money(strong.familyCost);
+  document.getElementById('strongAssets').textContent=money(strong.assetsRemaining);
+}
+
+function resetCalculator(){
+  document.getElementById('currentAge').value=60;
+  document.getElementById('careAge').value=85;
+  document.getElementById('careYears').value=5;
+  document.getElementById('householdRisk').value=1;
+  document.getElementById('careSetting').value='custom';
+  document.getElementById('monthlyCost').value=15000;
+  document.getElementById('careInflation').value=5;
+  document.getElementById('incomeAvailable').value=3000;
+  document.getElementById('savings').value=1000000;
+  document.getElementById('monthlyBenefit').value=7500;
+  document.getElementById('benefitYears').value=6;
+  document.getElementById('benefitInflation').value=3;
+  document.getElementById('eliminationDays').value=90;
+  document.getElementById('policyPool').value=540000;
+  setHousehold('single');
+}
+
+document.querySelectorAll('input,select').forEach(el=>{
+  el.addEventListener('input',calculate);
+  el.addEventListener('change',calculate);
+});
+
+setHousehold('single');
+calculate();
+</script>
+</body>
+</html>

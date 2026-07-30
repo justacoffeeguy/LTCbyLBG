@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why Care? | Long-Term Care by Les Goldstein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oak-bg: #F3ECE0;
+    --oak-warm: #B98A5E;
+    --oak-deep: #8A6842;
+    --green-deep: #3E4E58;
+    --green-soft: #7C93A0;
+    --cream-card: #FBF7EF;
+    --ink: #2B2420;
+    --ink-muted: #6B5D4F;
+    --line: #E1D4BF;
+    --max: 1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--oak-bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Source Serif 4', serif;
+    color:var(--green-deep);
+    margin:0;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,236,224,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:var(--max); margin:0 auto;
+    gap:20px;
+  }
+  .wordmark{
+    font-family:'Source Serif 4', serif;
+    font-weight:600; font-size:19px;
+    color:var(--green-deep);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .wordmark span{color:var(--oak-deep)}
+  nav.links{
+    display:flex; gap:28px;
+    font-size:15px; font-weight:500;
+  }
+  nav.links a{
+    text-decoration:none;
+    color:var(--green-soft);
+    position:relative;
+    padding:4px 0;
+  }
+  nav.links a.active{color:var(--green-deep); font-weight:600}
+  nav.links a:hover{color:var(--green-deep)}
+  .nav-phone{
+    display:flex; align-items:center; gap:8px;
+    font-weight:600; font-size:15px;
+    color:var(--green-deep);
+    text-decoration:none;
+    white-space:nowrap;
+    border:1px solid var(--oak-warm);
+    padding:8px 16px;
+    border-radius:30px;
+    transition:background .15s ease;
+  }
+  .nav-phone:hover{background:var(--cream-card)}
+
+  .eyebrow{
+    display:inline-block;
+    font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--oak-warm); font-weight:600;
+    margin-bottom:14px;
+  }
+
+  /* ---------- PHOTO HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:400px;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-photo{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(0deg, rgba(30,38,43,0.78) 0%, rgba(30,38,43,0.4) 55%, rgba(30,38,43,0.15) 100%),
+      url('images/why-care-hero.jpg') center 25%/cover no-repeat;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    padding:56px 0 48px;
+    width:100%;
+  }
+  .hero h1{
+    font-size:clamp(30px, 4.4vw, 46px);
+    font-weight:600;
+    line-height:1.14;
+    max-width:18ch;
+    color:#fff;
+  }
+  .hero p.lead{
+    margin-top:16px;
+    font-size:17px;
+    color:rgba(255,255,255,0.88);
+    max-width:56ch;
+  }
+
+  /* ---------- PAGE CONTENT ---------- */
+  .page-content{
+    padding:56px 0 8px;
+  }
+
+  /* ---------- TRIGGER EXPLAINER ---------- */
+  .trigger-box{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:32px 34px;
+    margin:8px 0 56px;
+  }
+  .trigger-box h3{
+    font-size:19px; font-weight:600; margin-bottom:12px;
+  }
+  .trigger-box p{
+    font-size:15.5px; color:var(--ink); max-width:78ch; margin:0 0 14px;
+  }
+  .adl-list{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:8px;
+  }
+  .adl-chip{
+    background:var(--oak-bg);
+    border:1px solid var(--oak-warm);
+    color:var(--oak-deep);
+    font-size:13.5px; font-weight:600;
+    padding:6px 14px;
+    border-radius:20px;
+  }
+
+  /* ---------- PERSONA BAND ---------- */
+  .persona-band{
+    background:var(--green-deep);
+    padding:64px 0 76px;
+  }
+  .persona-band h2{
+    color:#fff;
+    font-size:clamp(26px, 3.4vw, 36px);
+    font-weight:600;
+    margin-bottom:36px;
+  }
+  .persona-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:18px;
+  }
+  .persona-card{
+    background:var(--cream-card);
+    border-radius:12px;
+    padding:26px 20px 28px;
+    text-align:left;
+  }
+  .persona-icon{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:var(--oak-bg);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+  }
+  .persona-icon svg{width:26px; height:26px; stroke:var(--green-deep); fill:none; stroke-width:1.6}
+  .persona-card h3{
+    font-size:18px; font-weight:600; line-height:1.25;
+    margin-bottom:10px;
+  }
+  .persona-card p{
+    font-size:14px; color:var(--ink-muted); line-height:1.55; margin:0;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats-section{
+    padding:80px 0;
+  }
+  .stats-head{
+    max-width:64ch;
+    margin-bottom:44px;
+  }
+  .stats-head h2{
+    font-size:clamp(26px,3vw,32px);
+    font-weight:600;
+  }
+  .stats-head p{
+    color:var(--ink-muted);
+    font-size:16.5px;
+    margin-top:12px;
+  }
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    margin-bottom:56px;
+  }
+  .stat-card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:28px 24px;
+  }
+  .stat-card .num{
+    font-family:'Source Serif 4', serif;
+    font-size:38px;
+    font-weight:600;
+    color:var(--green-deep);
+    display:block;
+    line-height:1.1;
+  }
+  .stat-card .label{
+    font-size:14.5px;
+    color:var(--ink-muted);
+    margin-top:8px;
+  }
+
+  /* cost trajectory bars */
+  .traj-card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:36px 32px;
+  }
+  .traj-card h3{
+    font-size:16px; font-weight:600; color:var(--oak-deep);
+    text-transform:uppercase; letter-spacing:.04em; margin-bottom:24px;
+  }
+  .traj-bars{
+    display:flex; align-items:flex-end; gap:56px; height:200px; margin-bottom:8px;
+  }
+  .traj-bar-col{
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    flex:1;
+  }
+  .traj-bar{
+    width:100%;
+    max-width:120px;
+    background:linear-gradient(180deg, var(--green-soft), var(--green-deep));
+    border-radius:6px 6px 0 0;
+    position:relative;
+  }
+  .traj-bar .val{
+    position:absolute; top:-30px; left:0; right:0; text-align:center;
+    font-weight:700; color:var(--green-deep); font-size:17px;
+  }
+  .traj-bar-col .yr{
+    font-size:13.5px; color:var(--ink-muted); font-weight:600;
+  }
+  .traj-note{
+    font-size:13px; color:var(--ink-muted); margin-top:18px;
+  }
+
+  /* ---------- CAREGIVER IMPACT ---------- */
+  .impact-section{
+    background:var(--cream-card);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:76px 0;
+  }
+  .impact-head{max-width:64ch; margin-bottom:36px}
+  .impact-head h2{font-size:clamp(24px,2.8vw,30px); font-weight:600}
+  .impact-head p{color:var(--ink-muted); font-size:16px; margin-top:10px}
+  .impact-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+  }
+  .impact-item{
+    text-align:left;
+  }
+  .impact-item .pct{
+    font-family:'Source Serif 4', serif;
+    font-size:32px; font-weight:600; color:var(--oak-deep);
+    display:block;
+  }
+  .impact-item .desc{
+    font-size:13.5px; color:var(--ink-muted); margin-top:6px; line-height:1.5;
+  }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    padding:88px 0;
+    text-align:center;
+  }
+  .cta-banner h2{
+    font-size:clamp(26px,3.4vw,36px);
+    font-weight:600;
+    max-width:20ch;
+    margin:0 auto 18px;
+  }
+  .cta-banner p{
+    color:var(--ink-muted); font-size:16.5px; max-width:52ch; margin:0 auto 30px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px;
+    border-radius:8px;
+    font-weight:600; font-size:15.5px;
+    text-decoration:none;
+    background:var(--green-deep);
+    color:var(--oak-bg);
+    box-shadow:0 6px 18px rgba(62,78,88,0.25);
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--green-deep);
+    color:#EFE9DC;
+    padding:56px 0 40px;
+  }
+  .footer-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;
+  }
+  footer .wordmark2{
+    font-family:'Source Serif 4', serif;
+    font-size:20px; font-weight:600; color:#fff;
+  }
+  footer .contact-block{
+    display:flex; flex-direction:column; gap:6px;
+    font-size:15px;
+  }
+  footer a{text-decoration:none; color:#EFE9DC}
+  footer a:hover{color:#fff}
+  .foot-fine{
+    margin-top:36px;
+    padding-top:24px;
+    border-top:1px solid rgba(239,233,220,0.18);
+    font-size:12.5px;
+    color:#B9C1B7;
+    line-height:1.6;
+  }
+
+  @media (max-width: 980px){
+    .persona-grid{grid-template-columns:repeat(2, 1fr)}
+    .impact-grid{grid-template-columns:repeat(2, 1fr)}
+  }
+  @media (max-width: 860px){
+    .stat-row{grid-template-columns:1fr}
+    .traj-bars{gap:28px}
+    nav.links{display:none}
+    .hero{min-height:340px}
+  }
+  @media (max-width: 620px){
+    .persona-grid{grid-template-columns:1fr}
+    .impact-grid{grid-template-columns:1fr}
+  }
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Long-Term Care <span>by Les Goldstein</span></a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="why-care.html" class="active">Why Care?</a>
+      <a href="cost-breakdown.html">Cost Breakdown</a>
+      <a href="about.html">About Les</a>
+    </nav>
+    <a class="nav-phone" href="tel:7736801006">☎ 773-680-1006</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Why Care?</span>
+    <h1>Long-term care isn't about age. It's about ability.</h1>
+    <p class="lead">Care isn't triggered by a birthday — it's triggered by a specific, defined event.</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="wrap">
+    <div class="trigger-box reveal">
+      <h3>What actually triggers a long-term care need</h3>
+      <p>A long-term care "triggering event" occurs when a person cannot perform at least two of six Activities of Daily Living (ADLs) over an extended period of time, and this is certified by a physician or nurse practitioner:</p>
+      <div class="adl-list">
+        <span class="adl-chip">Bathing</span>
+        <span class="adl-chip">Dressing</span>
+        <span class="adl-chip">Toileting</span>
+        <span class="adl-chip">Transferring</span>
+        <span class="adl-chip">Continence</span>
+        <span class="adl-chip">Eating</span>
+      </div>
+      <p style="margin-top:18px">Care can also be triggered by cognitive impairment alone — memory loss, poor judgment, disorientation, impaired reasoning, or a reduced ability to make decisions — even without any physical limitation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="persona-band">
+  <div class="wrap">
+    <h2>Who actually needs long-term care?</h2>
+    <div class="persona-grid">
+
+      <div class="persona-card reveal">
+        <div class="persona-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M6 21c0-3.5 2-6.5 6-6.5s6 3 6 6.5"/><path d="M9 15l-2 6M15 15l2 6"/></svg>
+        </div>
+        <h3>Physical decline due to aging</h3>
+        <p>The most common path. As strength and mobility decline with age, everyday tasks like bathing, dressing, and moving safely become difficult without help.</p>
+      </div>
+
+      <div class="persona-card reveal">
+        <div class="persona-icon">
+          <svg viewBox="0 0 24 24"><circle cx="8" cy="18" r="3.4"/><path d="M8 18l4-11h3M12 7l4 6h3"/></svg>
+        </div>
+        <h3>Debilitating injury</h3>
+        <p>A fall or accident can require months of rehab and hands-on help with basic activities of daily living, even for someone who was fully independent before.</p>
+      </div>
+
+      <div class="persona-card reveal">
+        <div class="persona-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 4 12 2-6h4"/></svg>
+        </div>
+        <h3>Progressive illness</h3>
+        <p>Conditions like stroke or Parkinson's can bring on paralysis or reduced motor function, often requiring sustained assistance over years, not weeks.</p>
+      </div>
+
+      <div class="persona-card reveal">
+        <div class="persona-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3c-1.2.3-2 1.4-2 2.6 0 1 .6 1.9 1.5 2.3-.3.5-.5 1-.5 1.6 0 1.4 1 2.5 2.3 2.8.2 1.5 1.5 2.7 3.2 2.7h1.5c1.8 0 3.2-1.5 3.2-3.3V8a4 4 0 0 0-4-4H9z"/></svg>
+        </div>
+        <h3>Severe cognitive impairment</h3>
+        <p>Dementia and related conditions bring memory loss, poor judgment, and disorientation. Coverage can trigger here without any physical limitation at all.</p>
+      </div>
+
+      <div class="persona-card reveal">
+        <div class="persona-icon">
+          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+        </div>
+        <h3>Combination of chronic conditions</h3>
+        <p>Many people don't face one single event, but a slow accumulation of chronic conditions that together require regular, ongoing support.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="wrap">
+    <div class="stats-head reveal">
+      <h2>Know your risk</h2>
+      <p>These aren't fringe scenarios. The numbers show that planning for long-term care is closer to the norm than the exception.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card reveal">
+        <span class="num">7 in 10</span>
+        <span class="label">Americans age 65+ today are expected to need some type of long-term care.</span>
+      </div>
+      <div class="stat-card reveal">
+        <span class="num">3+ years</span>
+        <span class="label">Average duration of care needed. High health-risk individuals should expect 5+ years.</span>
+      </div>
+      <div class="stat-card reveal">
+        <span class="num">20%</span>
+        <span class="label">Of Americans 65+ will need care for longer than 5 years.</span>
+      </div>
+    </div>
+
+    <div class="traj-card reveal">
+      <h3>The Rising Cost of a Nursing Home</h3>
+      <div class="traj-bars">
+        <div class="traj-bar-col">
+          <div class="traj-bar" style="height:104px">
+            <span class="val">$105,921</span>
+          </div>
+          <span class="yr">Today</span>
+        </div>
+        <div class="traj-bar-col">
+          <div class="traj-bar" style="height:200px">
+            <span class="val">$210,760</span>
+          </div>
+          <span class="yr">In 20 Years</span>
+        </div>
+      </div>
+      <p class="traj-note">National annual average cost for a nursing home — a projected 99% increase over 20 years. Source: Nationwide, "Compare long-term care costs from state to state."</p>
+    </div>
+  </div>
+</section>
+
+<section class="impact-section">
+  <div class="wrap">
+    <div class="impact-head reveal">
+      <h2>It's not only a financial risk</h2>
+      <p>When a family member needs care, the impact usually lands on the people closest to them — most often a spouse or adult child. Source: Guardian, "Standing Up and Stepping In: A modern look at caregivers in the US."</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item reveal">
+        <span class="pct">20%</span>
+        <span class="desc">Of caregivers say caregiving has limited their career growth and job opportunities.</span>
+      </div>
+      <div class="impact-item reveal">
+        <span class="pct">26 hrs</span>
+        <span class="desc">Average number of hours per week caregivers spend providing care.</span>
+      </div>
+      <div class="impact-item reveal">
+        <span class="pct">47%</span>
+        <span class="desc">Of caregivers report increased anxiety, depression, or other mental health impact.</span>
+      </div>
+      <div class="impact-item reveal">
+        <span class="pct">50%</span>
+        <span class="desc">Of caregivers report living paycheck to paycheck while providing care.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2 class="reveal">See what this could actually cost you</h2>
+    <p class="reveal">Run your own numbers and compare the ways to pay for care, side by side.</p>
+    <a href="cost-breakdown.html" class="btn reveal">Go to the Cost Breakdown →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="wordmark2">Long-Term Care by Les Goldstein</div>
+    <div class="contact-block">
+      <a href="tel:7736801006">773-680-1006</a>
+      <a href="mailto:lgoldsteinpfs@gmail.com">lgoldsteinpfs@gmail.com</a>
+      <span>Chicago, IL</span>
+    </div>
+  </div>
+  <div class="wrap foot-fine">
+    This content is for informational purposes only and is not intended to serve as the basis for any financial or purchasing decision, or to provide specific legal or tax advice. Product and feature availability may vary by state. Our firm provides insurance services and is not affiliated with the U.S. government or any governmental agency.
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

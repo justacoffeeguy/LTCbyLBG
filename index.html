@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Long-Term Care Planning | Les Goldstein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --oak-bg: #F3ECE0;
+    --oak-warm: #B98A5E;
+    --oak-deep: #8A6842;
+    --green-deep: #3E4E58;
+    --green-soft: #7C93A0;
+    --cream-card: #FBF7EF;
+    --ink: #2B2420;
+    --ink-muted: #6B5D4F;
+    --line: #E1D4BF;
+    --max: 1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--oak-bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Source Serif 4', serif;
+    color:var(--green-deep);
+    margin:0;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,236,224,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    max-width:var(--max); margin:0 auto;
+    gap:20px;
+  }
+  .wordmark{
+    font-family:'Source Serif 4', serif;
+    font-weight:600; font-size:19px;
+    color:var(--green-deep);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .wordmark span{color:var(--oak-deep)}
+  nav.links{
+    display:flex; gap:28px;
+    font-size:15px; font-weight:500;
+  }
+  nav.links a{
+    text-decoration:none;
+    color:var(--green-soft);
+    position:relative;
+    padding:4px 0;
+  }
+  nav.links a.active{color:var(--green-deep); font-weight:600}
+  nav.links a:hover{color:var(--green-deep)}
+  .nav-phone{
+    display:flex; align-items:center; gap:8px;
+    font-weight:600; font-size:15px;
+    color:var(--green-deep);
+    text-decoration:none;
+    white-space:nowrap;
+    border:1px solid var(--oak-warm);
+    padding:8px 16px;
+    border-radius:30px;
+    transition:background .15s ease;
+  }
+  .nav-phone:hover{background:var(--cream-card)}
+  .nav-toggle{display:none}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:560px;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-photo{
+    position:absolute; inset:0;
+    background:
+      linear-gradient(0deg, rgba(30,38,43,0.75) 0%, rgba(30,38,43,0.38) 55%, rgba(30,38,43,0.15) 100%),
+      url('images/hero.jpg') center 30%/cover no-repeat;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    padding:64px 0 56px;
+    width:100%;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--oak-warm); font-weight:600;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(32px, 4.6vw, 50px);
+    font-weight:600;
+    line-height:1.12;
+    max-width:16ch;
+    letter-spacing:-0.01em;
+    color:#fff;
+  }
+  .hero p.lead{
+    margin-top:18px;
+    font-size:18px;
+    color:rgba(255,255,255,0.88);
+    max-width:48ch;
+    line-height:1.6;
+  }
+  .cta-row{
+    margin-top:30px;
+    display:flex; gap:16px; flex-wrap:wrap;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px;
+    border-radius:8px;
+    font-weight:600; font-size:15.5px;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{
+    background:var(--green-deep);
+    color:var(--oak-bg);
+    box-shadow:0 6px 18px rgba(51,71,58,0.25);
+  }
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(51,71,58,0.3)}
+  .btn-ghost{
+    color:var(--green-deep);
+    border:1px solid var(--oak-warm);
+    background:transparent;
+  }
+  .btn-ghost:hover{background:var(--cream-card)}
+  .btn-ghost-light{
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.55);
+    background:transparent;
+  }
+  .btn-ghost-light:hover{background:rgba(255,255,255,0.12)}
+
+  /* ---------- NOTE FROM LES ---------- */
+  .note-section{
+    background:var(--cream-card);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:80px 0;
+  }
+  .note-grid{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:52px;
+    align-items:start;
+  }
+  .photo-frame{
+    width:220px; height:270px;
+    border-radius:10px;
+    background:linear-gradient(160deg, #DFCBAE, #C9A177);
+    border:1px solid var(--oak-warm);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .photo-frame .placeholder-label{
+    position:absolute; bottom:12px; left:12px; right:12px;
+    font-size:12px; color:#5b4327; background:rgba(255,255,255,0.55);
+    padding:6px 8px; border-radius:6px; text-align:center;
+    font-family:'Inter',sans-serif;
+  }
+  .photo-frame svg{width:88px; height:88px; opacity:.55}
+  .note-copy .eyebrow{margin-bottom:10px}
+  .note-copy h2{
+    font-size:clamp(24px, 2.8vw, 30px);
+    font-weight:600;
+    margin-bottom:18px;
+    max-width:22ch;
+  }
+  .note-copy p{
+    font-size:16.5px;
+    color:var(--ink);
+    max-width:62ch;
+    margin:0 0 14px;
+    line-height:1.65;
+  }
+  .signature{
+    margin-top:22px;
+  }
+  .signature .name{
+    font-family:'Caveat', cursive;
+    font-size:40px;
+    color:var(--green-deep);
+    display:block;
+    line-height:1;
+  }
+  .signature .title{
+    font-size:13px;
+    color:var(--ink-muted);
+    margin-top:4px;
+    letter-spacing:.02em;
+  }
+  .note-link{
+    display:inline-block;
+    margin-top:18px;
+    white-space:nowrap;
+    font-weight:600;
+    font-size:14.5px;
+    color:var(--green-deep);
+    text-decoration:none;
+    border-bottom:2px solid var(--oak-warm);
+    padding-bottom:2px;
+  }
+  .note-link:hover{color:var(--oak-deep)}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    padding:56px 0;
+  }
+  .trust-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px;
+  }
+  .trust-item{
+    border-left:2px solid var(--oak-warm);
+    padding-left:20px;
+  }
+  .trust-item .big{
+    font-family:'Source Serif 4', serif;
+    font-size:26px;
+    color:var(--green-deep);
+    font-weight:600;
+    display:block;
+    margin-bottom:6px;
+  }
+  .trust-item .small{
+    font-size:14.5px;
+    color:var(--ink-muted);
+  }
+
+  /* ---------- NEXT STEPS ---------- */
+  .next{
+    padding:20px 0 100px;
+  }
+  .next-head{
+    max-width:60ch;
+    margin-bottom:44px;
+  }
+  .next-head h2{
+    font-size:clamp(26px,3vw,32px);
+    font-weight:600;
+  }
+  .next-head p{
+    color:var(--ink-muted);
+    font-size:16.5px;
+    margin-top:12px;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .card{
+    background:var(--cream-card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px 28px;
+    text-decoration:none;
+    display:block;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 30px rgba(51,71,58,0.12);
+    border-color:var(--oak-warm);
+  }
+  .card .tag{
+    font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--oak-deep);
+  }
+  .card h3{
+    font-size:22px;
+    margin-top:12px;
+    font-weight:600;
+  }
+  .card p{
+    color:var(--ink-muted);
+    font-size:15px;
+    margin-top:10px;
+    line-height:1.55;
+  }
+  .card .go{
+    margin-top:18px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--green-deep);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--green-deep);
+    color:#EFE9DC;
+    padding:56px 0 40px;
+  }
+  .footer-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;
+  }
+  footer .wordmark2{
+    font-family:'Source Serif 4', serif;
+    font-size:20px; font-weight:600; color:#fff;
+  }
+  footer .contact-block{
+    display:flex; flex-direction:column; gap:6px;
+    font-size:15px;
+  }
+  footer a{text-decoration:none; color:#EFE9DC}
+  footer a:hover{color:#fff}
+  .foot-fine{
+    margin-top:36px;
+    padding-top:24px;
+    border-top:1px solid rgba(239,233,220,0.18);
+    font-size:12.5px;
+    color:#B9C1B7;
+    line-height:1.6;
+  }
+
+  @media (max-width: 860px){
+    .note-grid{grid-template-columns:1fr}
+    .photo-frame{width:170px; height:210px}
+    .trust-grid{grid-template-columns:1fr; gap:20px}
+    .card-grid{grid-template-columns:1fr}
+    nav.links{display:none}
+    .hero{min-height:460px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .card, .btn-primary{transition:none}
+  }
+
+  .reveal{
+    opacity:0; transform:translateY(14px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Long-Term Care <span>by Les Goldstein</span></a>
+    <nav class="links">
+      <a href="index.html" class="active">Home</a>
+      <a href="why-care.html">Why Care?</a>
+      <a href="cost-breakdown.html">Cost Breakdown</a>
+      <a href="about.html">About Les</a>
+    </nav>
+    <a class="nav-phone" href="tel:7736801006">☎ 773-680-1006</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Long-Term Care Planning</span>
+    <h1>Plan for care. Protect what you've built.</h1>
+    <p class="lead">Clear answers on what long-term care costs, and how to cover it — picking up right where we left off.</p>
+    <div class="cta-row">
+      <a href="cost-breakdown.html" class="btn btn-primary">See the Cost Breakdown →</a>
+      <a href="tel:7736801006" class="btn btn-ghost-light">773-680-1006</a>
+    </div>
+  </div>
+</section>
+
+<section class="note-section">
+  <div class="wrap note-grid">
+    <div class="photo-frame reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5b4327" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      <div class="placeholder-label">Photo of Les — swap in a real headshot here</div>
+    </div>
+    <div class="note-copy reveal">
+      <span class="eyebrow">A note from Les</span>
+      <h2>Why I do this work</h2>
+      <p>I've been in financial services since 1984, and for the last 20+ years I've specialized in long-term care planning. Before that, I spent nearly two decades as a financial fiduciary here in the Chicago area, helping families build retirement plans they could actually trust.</p>
+      <p>In that time, I've sat with families who planned ahead and lived out their 80s and 90s with dignity, their savings and relationships intact. I've also sat with families who didn't, and watched a healthy spouse go broke covering care for the other. That gap is the whole reason I do this work.</p>
+      <div class="signature">
+        <span class="name">Les Goldstein</span>
+        <span class="title">Long-Term Care Insurance Specialist &nbsp;·&nbsp; Chicago, IL</span>
+      </div>
+      <a href="about.html" class="note-link">Read more about Les →</a>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="wrap trust-grid">
+    <div class="trust-item reveal">
+      <span class="big">40+ years</span>
+      <span class="small">in financial services, since 1984</span>
+    </div>
+    <div class="trust-item reveal">
+      <span class="big">20+ years</span>
+      <span class="small">focused specifically on long-term care planning</span>
+    </div>
+    <div class="trust-item reveal">
+      <span class="big">Illinois</span>
+      <span class="small">licensed, Partnership-qualified plan options</span>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="wrap">
+    <div class="next-head">
+      <h2>Where to go from here</h2>
+      <p>Take whichever path makes sense for you right now — everything here is meant to be explored at your own pace.</p>
+    </div>
+    <div class="card-grid">
+      <a href="why-care.html" class="card">
+        <span class="tag">01</span>
+        <h3>Why Care?</h3>
+        <p>Who actually ends up needing long-term care, and why it's far more common — and more expensive — than most people expect.</p>
+        <span class="go">Read more →</span>
+      </a>
+      <a href="cost-breakdown.html" class="card">
+        <span class="tag">02</span>
+        <h3>Cost Breakdown & Comparisons</h3>
+        <p>Run your own numbers with an interactive calculator, and compare the different ways to pay for care side by side.</p>
+        <span class="go">Run the numbers →</span>
+      </a>
+      <a href="about.html" class="card">
+        <span class="tag">03</span>
+        <h3>About Les</h3>
+        <p>More on my background, how I approach these conversations, and why I left traditional financial advising to focus here.</p>
+        <span class="go">Meet Les →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="wordmark2">Long-Term Care by Les Goldstein</div>
+    <div class="contact-block">
+      <a href="tel:7736801006">773-680-1006</a>
+      <a href="mailto:lgoldsteinpfs@gmail.com">lgoldsteinpfs@gmail.com</a>
+      <span>Chicago, IL</span>
+    </div>
+  </div>
+  <div class="wrap foot-fine">
+    This content is for informational purposes only and is not intended to serve as the basis for any financial or purchasing decision, or to provide specific legal or tax advice. Product and feature availability may vary by state. Our firm provides insurance services and is not affiliated with the U.S. government or any governmental agency.
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
