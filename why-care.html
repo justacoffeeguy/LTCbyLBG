@@ -93,16 +93,24 @@
   /* ---------- PHOTO HERO ---------- */
   .hero{
     position:relative;
-    min-height:400px;
+    min-height:calc(100vh - 73px);
     display:flex;
     align-items:flex-end;
     overflow:hidden;
   }
+  header{transition:padding .25s ease, box-shadow .25s ease}
+  header.scrolled{box-shadow:0 4px 16px rgba(43,36,32,0.06)}
+  header.scrolled .nav-inner{padding-top:12px; padding-bottom:12px}
+  .nav-inner{transition:padding .25s ease}
   .hero-photo{
     position:absolute; inset:0;
-    background:
-      linear-gradient(0deg, rgba(30,38,43,0.78) 0%, rgba(30,38,43,0.4) 55%, rgba(30,38,43,0.15) 100%),
-      url('images/why-care-hero.jpg') center 25%/cover no-repeat;
+    background-image:
+      linear-gradient(0deg, rgba(30,38,43,0.78) 0%, rgba(30,38,43,0.32) 55%, rgba(30,38,43,0.1) 100%),
+      url('images/why-care-hero.jpg');
+    background-position: center, center 25%;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll, fixed;
   }
   .hero-inner{
     position:relative; z-index:2;
@@ -362,7 +370,8 @@
     .stat-row{grid-template-columns:1fr}
     .traj-bars{gap:28px}
     nav.links{display:none}
-    .hero{min-height:340px}
+    .hero{min-height:78vh}
+    .hero-photo{background-attachment: scroll, scroll}
   }
   @media (max-width: 620px){
     .persona-grid{grid-template-columns:1fr}
@@ -558,10 +567,25 @@
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
+  const groups = new Map();
+  revealEls.forEach(el=>{
+    const parent = el.parentElement;
+    const idx = groups.get(parent) || 0;
+    el.style.transitionDelay = (idx*0.08)+'s';
+    groups.set(parent, idx+1);
+  });
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.12});
   revealEls.forEach(el=>io.observe(el));
+
+  const siteHeader = document.querySelector('header');
+  const onScroll = () => {
+    if(window.scrollY > 12){ siteHeader.classList.add('scrolled'); }
+    else{ siteHeader.classList.remove('scrolled'); }
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 </script>
 
 </body>

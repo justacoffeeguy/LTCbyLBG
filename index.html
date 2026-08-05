@@ -43,12 +43,20 @@
     background:rgba(243,236,224,0.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
+    transition:padding .25s ease, box-shadow .25s ease;
+  }
+  header.scrolled{
+    box-shadow:0 4px 16px rgba(43,36,32,0.06);
+  }
+  header.scrolled .nav-inner{
+    padding-top:12px; padding-bottom:12px;
   }
   .nav-inner{
     display:flex; align-items:center; justify-content:space-between;
     padding:18px 28px;
     max-width:var(--max); margin:0 auto;
     gap:20px;
+    transition:padding .25s ease;
   }
   .wordmark{
     font-family:'Source Serif 4', serif;
@@ -87,16 +95,20 @@
   /* ---------- HERO ---------- */
   .hero{
     position:relative;
-    min-height:560px;
+    min-height:calc(100vh - 73px);
     display:flex;
     align-items:flex-end;
     overflow:hidden;
   }
   .hero-photo{
     position:absolute; inset:0;
-    background:
-      linear-gradient(0deg, rgba(30,38,43,0.75) 0%, rgba(30,38,43,0.38) 55%, rgba(30,38,43,0.15) 100%),
-      url('images/hero.jpg') center 30%/cover no-repeat;
+    background-image:
+      linear-gradient(0deg, rgba(30,38,43,0.78) 0%, rgba(30,38,43,0.32) 55%, rgba(30,38,43,0.1) 100%),
+      url('images/hero.jpg');
+    background-position: center, center 30%;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll, fixed;
   }
   .hero-inner{
     position:relative; z-index:2;
@@ -172,20 +184,13 @@
   .photo-frame{
     width:220px; height:270px;
     border-radius:10px;
-    background:linear-gradient(160deg, #DFCBAE, #C9A177);
     border:1px solid var(--oak-warm);
-    display:flex; align-items:center; justify-content:center;
-    position:relative;
     overflow:hidden;
     flex-shrink:0;
   }
-  .photo-frame .placeholder-label{
-    position:absolute; bottom:12px; left:12px; right:12px;
-    font-size:12px; color:#5b4327; background:rgba(255,255,255,0.55);
-    padding:6px 8px; border-radius:6px; text-align:center;
-    font-family:'Inter',sans-serif;
+  .photo-frame img{
+    width:100%; height:100%; object-fit:cover; display:block;
   }
-  .photo-frame svg{width:88px; height:88px; opacity:.55}
   .note-copy .eyebrow{margin-bottom:10px}
   .note-copy h2{
     font-size:clamp(24px, 2.8vw, 30px);
@@ -347,7 +352,8 @@
     .trust-grid{grid-template-columns:1fr; gap:20px}
     .card-grid{grid-template-columns:1fr}
     nav.links{display:none}
-    .hero{min-height:460px}
+    .hero{min-height:78vh}
+    .hero-photo{background-attachment: scroll, scroll}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -393,8 +399,7 @@
 <section class="note-section">
   <div class="wrap note-grid">
     <div class="photo-frame reveal">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#5b4327" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-      <div class="placeholder-label">Photo of Les — swap in a real headshot here</div>
+      <img src="images/les-headshot.jpg" alt="Les Goldstein">
     </div>
     <div class="note-copy reveal">
       <span class="eyebrow">A note from Les</span>
@@ -471,11 +476,28 @@
 </footer>
 
 <script>
+  // Staggered reveal-on-scroll
   const revealEls = document.querySelectorAll('.reveal');
+  const groups = new Map();
+  revealEls.forEach(el=>{
+    const parent = el.parentElement;
+    const idx = groups.get(parent) || 0;
+    el.style.transitionDelay = (idx*0.08)+'s';
+    groups.set(parent, idx+1);
+  });
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
+
+  // Header shrink on scroll
+  const siteHeader = document.querySelector('header');
+  const onScroll = () => {
+    if(window.scrollY > 12){ siteHeader.classList.add('scrolled'); }
+    else{ siteHeader.classList.remove('scrolled'); }
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 </script>
 
 </body>

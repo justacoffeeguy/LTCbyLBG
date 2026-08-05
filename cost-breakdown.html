@@ -84,31 +84,56 @@
   .nav-phone:hover{background:var(--cream-card)}
 
   /* ---------- PAGE HERO (text only, no photo) ---------- */
-  .page-hero{
-    padding:64px 0 52px;
+  .hero{
+    position:relative;
+    min-height:calc(100vh - 73px);
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  header{transition:padding .25s ease, box-shadow .25s ease}
+  header.scrolled{box-shadow:0 4px 16px rgba(43,36,32,0.06)}
+  header.scrolled .nav-inner{padding-top:12px; padding-bottom:12px}
+  .nav-inner{transition:padding .25s ease}
+  .hero-photo{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(0deg, rgba(30,38,43,0.78) 0%, rgba(30,38,43,0.32) 55%, rgba(30,38,43,0.1) 100%),
+      url('images/cost-breakdown-hero.jpg');
+    background-position: center, center 30%;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-attachment: scroll, fixed;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    padding:56px 0 48px;
+    width:100%;
   }
   .eyebrow{
     display:inline-block;
     font-size:13px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--oak-deep); font-weight:600;
-    margin-bottom:16px;
+    color:var(--oak-warm); font-weight:600;
+    margin-bottom:14px;
   }
-  .page-hero h1{
+  .hero h1{
     font-size:clamp(30px, 4.4vw, 46px);
     font-weight:600;
     line-height:1.14;
     max-width:20ch;
+    color:#fff;
   }
-  .page-hero p.lead{
+  .hero p.lead{
     margin-top:16px;
-    font-size:18px;
-    color:var(--ink-muted);
-    max-width:62ch;
+    font-size:17px;
+    color:rgba(255,255,255,0.88);
+    max-width:56ch;
   }
 
   /* ---------- BRIEF PLAN COMPARISON ---------- */
   .plans-section{
     padding-bottom:70px;
+    padding-top:56px;
   }
   .plans-head{
     margin-bottom:28px;
@@ -282,6 +307,8 @@
   @media (max-width: 860px){
     nav.links{display:none}
     iframe.calc-frame{height:2200px}
+    .hero{min-height:78vh}
+    .hero-photo{background-attachment: scroll, scroll}
   }
   @media (max-width: 620px){
     .plans-grid{grid-template-columns:1fr}
@@ -306,8 +333,9 @@
   </div>
 </header>
 
-<section class="page-hero">
-  <div class="wrap">
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="wrap hero-inner">
     <span class="eyebrow">Cost Breakdown & Comparisons</span>
     <h1>What this actually costs, and how to cover it.</h1>
     <p class="lead">Five ways to pay for long-term care, a real premium example, and a calculator to run your own numbers.</p>
@@ -467,10 +495,25 @@
 
 <script>
   const revealEls = document.querySelectorAll('.reveal');
+  const groups = new Map();
+  revealEls.forEach(el=>{
+    const parent = el.parentElement;
+    const idx = groups.get(parent) || 0;
+    el.style.transitionDelay = (idx*0.08)+'s';
+    groups.set(parent, idx+1);
+  });
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.1});
   revealEls.forEach(el=>io.observe(el));
+
+  const siteHeader = document.querySelector('header');
+  const onScroll = () => {
+    if(window.scrollY > 12){ siteHeader.classList.add('scrolled'); }
+    else{ siteHeader.classList.remove('scrolled'); }
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 </script>
 
 </body>
