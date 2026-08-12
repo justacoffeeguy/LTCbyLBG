@@ -115,6 +115,11 @@
   .need-row h3{font-size:16.5px; font-weight:600; margin:0; line-height:1.35}
   .need-row p{font-size:14px; color:var(--ink); line-height:1.58; margin:0}
 
+  /* ---------- PHOTO BREAK ---------- */
+  .photo-break{height:clamp(300px,42vw,500px);position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#d7dde0}
+  .photo-break img{width:100%;height:100%;object-fit:cover;object-position:center 43%;display:block}
+  .photo-break::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,39,44,.12),rgba(31,39,44,0) 55%);pointer-events:none}
+
   /* ---------- PAYMENT SECTION SHARED ---------- */
   .payment-section{padding:76px 0}
   .payment-section.alt{background:var(--cream-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
@@ -345,6 +350,11 @@
       <p class="care-path-note">National annual averages shown for 2024. Care needs can move between settings over time. Source: Nationwide, “Compare long-term care costs from state to state,” 2024.</p>
     </div>
   </div>
+</section>
+
+
+<section class="photo-break" aria-label="The family side of long-term care">
+  <img src="images/why-story.jpg" alt="Older couple embracing">
 </section>
 
 <section class="payment-section">

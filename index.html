@@ -230,6 +230,18 @@
   }
   .stat-card .label{font-size:14px; color:var(--ink); margin-top:8px; line-height:1.5}
 
+  /* ---------- PHOTO BREAK ---------- */
+  .photo-break{
+    height:clamp(280px,42vw,470px);
+    position:relative;
+    overflow:hidden;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:#d7dde0;
+  }
+  .photo-break img{width:100%;height:100%;object-fit:cover;object-position:center 43%;display:block}
+  .photo-break::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,39,44,.14),rgba(31,39,44,0) 55%);pointer-events:none}
+
   /* ---------- WOMEN SECTION ---------- */
   .women-section{
     background:var(--cream-card);
@@ -427,6 +439,11 @@
       </div>
     </div>
   </div>
+</section>
+
+
+<section class="photo-break" aria-label="A couple planning for the future">
+  <img src="images/home-story.jpg" alt="Older couple together by the water">
 </section>
 
 <section class="women-section">
