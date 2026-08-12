@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Explore Plans | Long-Term Care by Les Goldstein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oak-bg:#F3ECE0; --oak-warm:#B98A5E; --oak-deep:#8A6842;
+  --green-deep:#3E4E58; --green-soft:#7C93A0; --cream-card:#FBF7EF;
+  --ink:#2B2420; --ink-muted:#6B5D4F; --line:#E1D4BF; --blue-band:#E7ECEE;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--oak-bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.65}
+h1,h2,h3,h4,.serif{font-family:'Source Serif 4',serif;color:var(--green-deep);margin:0}
+a{color:inherit}.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:rgba(243,236,224,.93);backdrop-filter:blur(7px);border-bottom:1px solid var(--line);transition:box-shadow .25s ease}
+header.scrolled{box-shadow:0 4px 16px rgba(43,36,32,.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:var(--max);margin:0 auto;gap:18px;transition:padding .25s ease}
+header.scrolled .nav-inner{padding-top:12px;padding-bottom:12px}
+.wordmark{font-family:'Source Serif 4',serif;font-weight:600;font-size:18px;color:var(--green-deep);text-decoration:none;white-space:nowrap}.wordmark span{color:var(--oak-deep)}
+nav.links{display:flex;gap:22px;font-size:14px;font-weight:500}nav.links a{text-decoration:none;color:var(--green-soft);padding:4px 0;white-space:nowrap}nav.links a.active{color:var(--green-deep);font-weight:600}nav.links a:hover{color:var(--green-deep)}
+.nav-phone{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--green-deep);text-decoration:none;white-space:nowrap;border:1px solid var(--oak-warm);padding:8px 14px;border-radius:30px;flex-shrink:0}
+
+/* HERO */
+.hero{position:relative;height:calc(100svh - 75px);min-height:610px;display:flex;align-items:flex-end;overflow:hidden;background:#34434c}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,33,38,.52) 0%,rgba(25,33,38,.2) 54%,rgba(25,33,38,.05) 78%),linear-gradient(0deg,rgba(25,33,38,.88) 0%,rgba(25,33,38,.36) 48%,rgba(25,33,38,.08) 80%)}
+.hero-inner{position:relative;z-index:2;padding:72px 0 66px;width:100%}.hero-copy{max-width:760px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--oak-warm);font-weight:700;margin-bottom:14px}
+.hero h1{font-size:clamp(40px,5.2vw,66px);font-weight:600;line-height:1.04;max-width:15ch;color:#fff;text-wrap:balance}
+.hero p.lead{margin:20px 0 0;font-size:clamp(16px,1.6vw,19px);color:rgba(255,255,255,.91);max-width:61ch;line-height:1.65}
+
+/* INTRO */
+.intro{background:var(--blue-band);border-bottom:1px solid var(--line);padding:48px 0}
+.intro-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:54px;align-items:start}
+.intro h2{font-size:clamp(25px,3vw,34px);font-weight:600;line-height:1.2}.intro p{margin:0;font-size:16.5px;line-height:1.75;color:var(--ink)}
+
+/* THREE PATH OVERVIEW */
+.overview{padding:68px 0 76px}.section-head{max-width:72ch;margin-bottom:30px}.section-head h2{font-size:clamp(27px,3.1vw,36px);font-weight:600}.section-head p{font-size:16px;color:var(--ink-muted);margin:10px 0 0;line-height:1.7}
+.path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.path-card{background:var(--cream-card);border:1px solid var(--line);border-radius:15px;padding:26px 24px;display:flex;flex-direction:column;min-height:270px}
+.path-num{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--oak-deep);font-weight:700}.path-card h3{font-size:22px;margin:9px 0 10px;line-height:1.2}.path-card p{font-size:14.5px;color:var(--ink-muted);margin:0 0 18px;line-height:1.62}.path-bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;font-size:13.5px;color:var(--ink)}
+
+/* DEEP DIVE */
+.deep{padding:78px 0;border-top:1px solid var(--line)}.deep.alt{background:var(--cream-card)}
+.deep-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:58px;margin-bottom:36px;align-items:start}.deep-title .tag{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--oak-deep);font-weight:700}.deep-title h2{font-size:clamp(29px,3.5vw,42px);font-weight:600;line-height:1.08;margin-top:8px}.deep-title .short{font-size:15px;color:var(--ink-muted);margin:14px 0 0;line-height:1.65}
+.deep-copy>p{font-size:16px;line-height:1.75;margin:0 0 18px;color:var(--ink)}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}.detail-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:21px 22px}.deep.alt .detail-card{background:var(--oak-bg)}.detail-card h3{font-size:17px;margin-bottom:8px}.detail-card p{font-size:13.8px;line-height:1.6;color:var(--ink-muted);margin:0}
+.benefit-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:30px;background:#fff}.benefit-item{padding:20px 22px}.benefit-item+.benefit-item{border-left:1px solid var(--line)}.benefit-item .label{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--oak-deep);font-weight:700}.benefit-item strong{font-family:'Source Serif 4',serif;display:block;color:var(--green-deep);font-size:19px;line-height:1.25;margin-top:5px}.benefit-item p{font-size:12.8px;color:var(--ink-muted);margin:6px 0 0;line-height:1.5}
+
+/* CUSTOMIZATION */
+
+/* COMPARE */
+.compare-section{padding:80px 0;background:var(--blue-band);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.compare-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff;margin-top:28px}table.compare{width:100%;border-collapse:collapse;min-width:820px;font-size:13.5px}table.compare th,table.compare td{padding:15px 17px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}table.compare th{background:var(--green-deep);color:#fff;font-weight:600}table.compare th:first-child{width:22%}table.compare td:first-child{font-weight:700;color:var(--green-deep)}table.compare tr:last-child td{border-bottom:0}table.compare tr:nth-child(even) td{background:#FBF8F2}
+
+/* CTA */
+.closing{background:linear-gradient(135deg,#3E4E58,#2D3941);padding:84px 0;text-align:center}.closing h2{color:#fff;font-size:clamp(28px,3.6vw,39px);font-weight:600;max-width:22ch;margin:0 auto 16px}.closing p{color:rgba(255,255,255,.82);font-size:16.5px;max-width:59ch;margin:0 auto 28px;line-height:1.65}.btn{display:inline-flex;align-items:center;padding:14px 26px;border-radius:8px;background:var(--oak-warm);color:#2B2420;text-decoration:none;font-weight:600}
+
+/* SOURCES / FOOTER */
+.sources{background:var(--cream-card);padding:36px 0;border-top:1px solid var(--line)}.sources summary{cursor:pointer;color:var(--green-deep);font-weight:600;font-size:14px}.sources p{font-size:12px;color:var(--ink-muted);line-height:1.7;max-width:90ch}
+footer{background:var(--green-deep);color:#EFE9DC;padding:50px 0 36px}.footer-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.wordmark2{font-family:'Source Serif 4',serif;font-size:20px;font-weight:600;color:#fff}.contact-block{display:flex;flex-direction:column;gap:5px;font-size:14px}.contact-block a{text-decoration:none}.foot-fine{margin-top:32px;padding-top:22px;border-top:1px solid rgba(239,233,220,.18);font-size:11.8px;color:#B9C1B7;line-height:1.65}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}.reveal.in{opacity:1;transform:none}
+
+@media(max-width:980px){.path-grid{grid-template-columns:1fr}.deep-head,.intro-grid{grid-template-columns:1fr;gap:26px}.detail-grid{grid-template-columns:1fr}.benefit-strip{grid-template-columns:1fr}.benefit-item+.benefit-item{border-left:0;border-top:1px solid var(--line)}.terms-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){nav.links{display:none}.hero{min-height:560px}.hero-photo{object-position:58% center}.hero-inner{padding:56px 0 52px}.hero h1{font-size:clamp(38px,10vw,56px)}}
+@media(max-width:580px){.wrap{padding-left:20px;padding-right:20px}.nav-inner{padding-left:20px;padding-right:20px}.wordmark{font-size:16px}.nav-phone{font-size:0;padding:8px 11px}.nav-phone::after{content:'Call Les';font-size:13px}.deep,.overview,.compare-section{padding-top:58px;padding-bottom:58px}.hero{height:calc(100svh - 75px);min-height:520px}.hero-photo{object-position:62% center}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Long-Term Care <span>by Les Goldstein</span></a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="why-ltc.html">Why LTC?</a>
+      <a href="explore-plans.html" class="active">Explore Plans</a>
+      <a href="calculate-plans.html">Calculate Plans</a>
+      <a href="about.html">About Les</a>
+    </nav>
+    <a class="nav-phone" href="tel:7736801006">☎ 773-680-1006</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="hero-photo" src="images/explore-plans-hero.jpg" alt="Older couple sitting outdoors overlooking a scenic landscape">
+  <div class="hero-shade"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Explore Your Options</span>
+      <h1>Three ways to insure the long-term care risk.</h1>
+      <p class="lead">Once you've decided you don't want the entire cost of care resting on your savings or your family, the next question is how to structure the protection. These are the three main insurance paths Les helps clients compare.</p>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <h2 class="reveal">Same problem. Very different ways to solve it.</h2>
+    <p class="reveal">Traditional long-term care insurance is built specifically for care. LTC + life insurance combines long-term care benefits with a life insurance death benefit. LTC + annuities use an annuity structure with long-term care protection. Each can provide meaningful protection, but they differ in underwriting, premium structure, what happens if care is never needed, and how benefits are paid.</p>
+  </div>
+</section>
+
+<section class="overview">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Three Options</span>
+      <h2>Three approaches - depending on what matters most to you.</h2>
+      <p>Some people want the most dedicated care coverage they can get. Some want protection without feeling like unused dollars simply disappear. Others would rather reposition an existing asset and keep whatever value is not used for care. Those different priorities point toward three different ways to plan.</p>
+    </div>
+    <div class="path-grid">
+      <article class="path-card reveal">
+        <span class="path-num">01</span>
+        <h3>Traditional LTC Insurance</h3>
+        <p>A stand-alone policy designed specifically to reimburse qualifying long-term care expenses, up to the benefit limits selected when the policy is issued.</p>
+        <div class="path-bottom"><b>Best fit to explore when:</b> maximizing dedicated long-term care protection is the priority.</div>
+      </article>
+      <article class="path-card reveal">
+        <span class="path-num">02</span>
+        <h3>LTC + Life Insurance</h3>
+        <p>A life insurance policy with long-term care protection. If care is needed, benefits can help pay for it. If the LTC benefit does not exhaust the policy, a death benefit will remain for beneficiaries.</p>
+        <div class="path-bottom"><b>Best fit to explore when:</b> you want care protection and a legacy/death-benefit component.</div>
+      </article>
+      <article class="path-card reveal">
+        <span class="path-num">03</span>
+        <h3>LTC + Annuities</h3>
+        <p>An annuity structure with long-term care protection. The annuity value can fund qualifying care, and if care does not exhaust it, remaining value stays available for you and can ultimately pass to beneficiaries.</p>
+        <div class="path-bottom"><b>Best fit to explore when:</b> you have assets to reposition and want less stringent underwriting than many other LTC solutions require.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="deep alt" id="traditional">
+  <div class="wrap">
+    <div class="deep-head">
+      <div class="deep-title reveal">
+        <span class="tag">01</span>
+        <h2>Traditional Long-Term Care Insurance</h2>
+        <p class="short">The most direct approach: buy a policy whose primary job is paying for long-term care.</p>
+      </div>
+      <div class="deep-copy reveal">
+        <p>Traditional LTC insurance is designed to reimburse covered long-term care services up to a pre-selected daily or monthly limit. Coverage can be structured for care at home, in community settings, assisted living, or a nursing facility, depending on the policy.</p>
+        <p>Because the policy is dedicated to long-term care, the premium is devoted to care protection rather than also supporting a separate death benefit or annuity value. Health underwriting is required before a traditional policy can be issued.</p>
+      </div>
+    </div>
+
+    <div class="benefit-strip reveal">
+      <div class="benefit-item"><span class="label">Basic structure</span><strong>Use it or lose it</strong><p>A basic traditional policy is built for care and generally does not return unused premium or provide a death benefit.</p></div>
+      <div class="benefit-item"><span class="label">State Partnership protection</span><strong>Qualifying policies can protect assets</strong><p>Qualifying traditional policies may participate in a state Partnership Program that can protect a portion of assets after LTC benefits are exhausted.</p></div>
+      <div class="benefit-item"><span class="label">Where the premium goes</span><strong>Focused on care</strong><p>The premium supports long-term care coverage rather than also funding a separate death benefit or annuity value.</p></div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-card reveal"><h3>What triggers benefits?</h3><p>Policies generally require the insured to meet the contract's definition of chronically ill, commonly involving an inability to perform at least two activities of daily living or a qualifying cognitive impairment, with required certification.</p></div>
+      <div class="detail-card reveal"><h3>What happens if care is never needed?</h3><p>With a basic traditional policy, it is generally use it or lose it - there is no death benefit and unused premium is not returned. Optional return-of-premium or nonforfeiture features can change that outcome.</p></div>
+      <div class="detail-card reveal"><h3>Can premiums change?</h3><p>Traditional policy premiums are not guaranteed and can increase in the future. Some limited-pay structures can reduce or eliminate that exposure after the required payment period.</p></div>
+      <div class="detail-card reveal"><h3>How are claims paid?</h3><p>Many traditional LTC policies reimburse covered expenses up to the policy limit. Some policy designs instead pay a set benefit directly under the contract. The payment method matters because it affects documentation and flexibility.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="deep" id="life-ltc">
+  <div class="wrap">
+    <div class="deep-head">
+      <div class="deep-title reveal">
+        <span class="tag">02</span>
+        <h2>LTC + Life Insurance</h2>
+        <p class="short">One pool of premium dollars designed to address two possible outcomes: care during life or a benefit at death.</p>
+      </div>
+      <div class="deep-copy reveal">
+        <p>LTC + life insurance combines a life insurance contract with long-term care protection. If a qualifying long-term care need occurs, the policy can provide LTC benefits. If those benefits do not exhaust the policy, a death benefit will remain for beneficiaries.</p>
+        <p>This structure can reduce the use-it-or-lose-it concern of basic traditional LTC insurance. The tradeoff is that the premium is funding both long-term care protection and a life insurance benefit, so the economics are different from a policy built only for care.</p>
+      </div>
+    </div>
+
+    <div class="benefit-strip reveal">
+      <div class="benefit-item"><span class="label">If care is needed</span><strong>LTC benefits are available</strong><p>Benefits can help pay for qualifying long-term care needs under the contract.</p></div>
+      <div class="benefit-item"><span class="label">If care is not exhausted</span><strong>Tax-free death benefit</strong><p>If LTC benefits do not exhaust the policy, a death benefit will remain for beneficiaries. If properly structured, life insurance proceeds are generally income tax-free to the beneficiary.</p></div>
+      <div class="benefit-item"><span class="label">Premium structure</span><strong>Usually guaranteed</strong><p>The brochure notes asset-based life premiums are usually guaranteed, so future rate increases generally are not the main concern.</p></div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-card reveal"><h3>Underwriting</h3><p>Asset-based life policies still require underwriting, but the brochure describes the process as simplified health underwriting for this category. Product and carrier rules vary.</p></div>
+      <div class="detail-card reveal"><h3>What remains for beneficiaries?</h3><p>Long-term care benefits generally reduce the amount ultimately left as a death benefit. If the LTC benefit does not exhaust the policy, the remaining death benefit will pass to beneficiaries subject to the policy terms.</p></div>
+      <div class="detail-card reveal"><h3>LTC rider vs. chronic illness rider</h3><p>They are not the same. An LTC rider is described as more comprehensive, while chronic illness riders may require a condition to be permanent or non-recoverable and may not cover every LTC claim.</p></div>
+      <div class="detail-card reveal"><h3>How benefits may be paid</h3><p>Some LTC riders reimburse qualifying expenses up to the policy limit. Others can pay a set benefit directly under the contract without tying every dollar to a submitted expense.</p></div>
+      <div class="detail-card reveal"><h3>Effect on the death benefit</h3><p>When long-term care benefits are accelerated from a life insurance policy, using those benefits generally reduces what ultimately remains as a death benefit.</p></div>
+      <div class="detail-card reveal"><h3>Flexibility of benefit use</h3><p>Certain life-based riders may allow benefit dollars to help with a broad set of needs such as family/home care, remodeling, transportation, housekeeping, assisted living, or skilled nursing, subject to the contract.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="deep alt" id="annuity-ltc">
+  <div class="wrap">
+    <div class="deep-head">
+      <div class="deep-title reveal">
+        <span class="tag">03</span>
+        <h2>LTC + Annuities</h2>
+        <p class="short">An annuity structure with long-term care protection.</p>
+      </div>
+      <div class="deep-copy reveal">
+        <p>LTC + annuities combine an annuity structure with long-term care protection. The annuity value can fund qualifying LTC expenses up to the policy's specified monthly amount, and an additional extension-of-benefits pool may be purchased to provide coverage after the annuity value has been depleted.</p>
+        <p>This route may be especially relevant for someone who has assets to reposition. If the annuity is not spent entirely on care, the remaining annuity value stays available to the owner and can ultimately remain for beneficiaries.</p>
+      </div>
+    </div>
+
+    <div class="benefit-strip reveal">
+      <div class="benefit-item"><span class="label">Underwriting</span><strong>Often less stringent</strong><p>The brochure describes underwriting as less stringent than traditional LTC insurance or life insurance.</p></div>
+      <div class="benefit-item"><span class="label">If care does not exhaust it</span><strong>Remaining value stays yours</strong><p>Any annuity value not spent on care remains available to the owner and can ultimately pass to beneficiaries.</p></div>
+      <div class="benefit-item"><span class="label">Qualified LTC expenses</span><strong>Potential tax advantage</strong><p>The brochure states that qualified LTC payments from an asset-based annuity can be income-tax-free under the Pension Protection Act.</p></div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-card reveal"><h3>Where benefits come from first</h3><p>The contract initially pays LTC expenses from the annuity's own value, up to the specified maximum monthly amount.</p></div>
+      <div class="detail-card reveal"><h3>Extension of benefits</h3><p>An additional LTC pool may be purchased so benefits can continue after the annuity value is exhausted. The brochure notes extended-benefit premiums are typically guaranteed.</p></div>
+      <div class="detail-card reveal"><h3>What happens to the annuity value?</h3><p>As long-term care benefits are paid, the annuity value is being spent down. If care does not exhaust the annuity, whatever remains stays available to the owner and can ultimately pass to beneficiaries. Other withdrawals can also reduce LTC benefits and any death benefit.</p></div>
+      <div class="detail-card reveal"><h3>Not every annuity “LTC feature” is the same</h3><p>An annuity income doubler is a separate concept: it may temporarily increase the income payout when contract conditions are met, but it is not the same structure as a true asset-based LTC annuity with an extension-of-benefits pool.</p></div>
+      <div class="detail-card reveal"><h3>Care setting rules vary</h3><p>Some annuity riders are limited to nursing-home confinement or terminal illness, while others may recognize qualifying home care. Contract definitions and benefit periods need to be reviewed carefully.</p></div>
+      <div class="detail-card reveal"><h3>Interest and opportunity cost</h3><p>The brochure notes that the cost of LTC coverage can consume some or all of the interest earned by the annuity, particularly in a low-interest-rate environment.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="compare-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Side by Side</span>
+      <h2>The differences that actually matter.</h2>
+      <p>These are general characteristics from Les's educational materials. Actual policy provisions, availability, underwriting, tax treatment and pricing vary by carrier, state and individual circumstances.</p>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead><tr><th>Question</th><th>Traditional LTC</th><th>LTC + Life Insurance</th><th>LTC + Annuities</th></tr></thead>
+        <tbody>
+          <tr><td>Primary purpose</td><td>Dedicated long-term care protection</td><td>Life insurance with LTC protection</td><td>Annuity structure with LTC protection</td></tr>
+          <tr><td>If LTC is never needed</td><td>Basic policy is generally use it or lose it; optional riders can change this</td><td>A death benefit will remain for beneficiaries if LTC benefits do not exhaust the policy</td><td>Remaining annuity value stays available to the owner and can ultimately pass to beneficiaries</td></tr>
+          <tr><td>Underwriting</td><td>Health underwriting is required</td><td>Simplified health underwriting is required; some riders may have separate underwriting</td><td>Generally less stringent than traditional LTC or life insurance</td></tr>
+          <tr><td>Premium certainty</td><td>Traditional premiums are not guaranteed and may increase</td><td>Premiums are usually guaranteed</td><td>Extended-benefit premiums are typically guaranteed</td></tr>
+          <tr><td>Tax considerations</td><td>Traditional LTC premiums may be treated as medical expenses, subject to tax rules and limits</td><td>If properly structured, life insurance death benefits are generally income tax-free to beneficiaries</td><td>Qualified LTC payments from an asset-based annuity can be income tax-free under the Pension Protection Act</td></tr>
+          <tr><td>How unused value is treated</td><td>Basic policy generally has no unused value unless optional riders change the outcome</td><td>Remaining value supports the death benefit</td><td>Remaining value stays in the annuity</td></tr>
+          <tr><td>Best reason to consider</td><td>You want dedicated LTC coverage and customization</td><td>You want LTC protection plus a legacy/death-benefit component</td><td>You want to reposition assets with potentially easier underwriting</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2 class="reveal">These are the outlines. The right fit is personal.</h2>
+    <p class="reveal">Traditional LTC, LTC + life insurance, and LTC + annuities each solve the problem differently. The details inside each structure - benefit levels, premium design, underwriting, riders, tax treatment, and what happens to unused value - can change what makes the most sense for you. Talk through your options with Les to understand what is truly the best fit for your needs, priorities, and financial picture.</p>
+    <a class="btn reveal" href="about.html">Talk Through Your Options →</a>
+  </div>
+</section>
+
+<section class="sources">
+  <div class="wrap">
+    <details>
+      <summary>Sources and important notes</summary>
+      <p>Primary consumer source: “What If You Need Long-Term Care?” 2024 educational brochure prepared by Advisors Excel. Additional product-mechanics reference: NGL EssentialLTC Long Term Care Sales Guide (agent/broker material; not for public distribution). Product features and availability vary by carrier and state. This page is educational and does not constitute a policy illustration, tax advice, legal advice, or a guarantee of benefits, premiums, eligibility, or product availability.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="wordmark2">Long-Term Care by Les Goldstein</div>
+    <div class="contact-block"><a href="tel:7736801006">773-680-1006</a><a href="mailto:les@longtermcarebylbg.com">les@longtermcarebylbg.com</a><span>Chicago, IL</span></div>
+  </div>
+  <div class="wrap foot-fine">This content is for informational purposes only, based on information currently available, and is not intended to serve as the basis for any financial or purchasing decision or to provide specific legal or tax advice. Product and feature availability, underwriting, premiums, tax treatment and benefits vary by state, carrier and individual circumstances. Our firm provides insurance services and is not affiliated with the U.S. government or any governmental agency.</div>
+</footer>
+<script>
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+revealEls.forEach(el=>io.observe(el));
+const siteHeader=document.querySelector('header');
+const onScroll=()=>siteHeader.classList.toggle('scrolled',window.scrollY>12);
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>

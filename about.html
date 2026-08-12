@@ -99,11 +99,12 @@
     position:absolute; inset:0;
     background-image:
       linear-gradient(0deg, rgba(30,38,43,0.78) 0%, rgba(30,38,43,0.32) 55%, rgba(30,38,43,0.1) 100%),
-      url('images/about-hero.jpg');
-    background-position: center, center 28%;
-    background-size: cover, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-attachment: scroll, fixed;
+      url('images/about-hero.jpg'),
+      url('https://ltcbylbg.mgoldstein167.workers.dev/images/about-hero.jpg');
+    background-position: center, center 28%, center 28%;
+    background-size: cover, cover, cover;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-attachment: scroll, fixed, fixed;
   }
   .hero-inner{
     position:relative; z-index:2;
@@ -146,9 +147,13 @@
     border:1px solid var(--oak-warm);
     overflow:hidden;
     flex-shrink:0;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
   .photo-frame img{
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; height:100%; object-fit:contain; object-position:center center; display:block;
   }
   .bio-copy p{
     font-size:17px;
@@ -315,8 +320,9 @@
     <a href="index.html" class="wordmark">Long-Term Care <span>by Les Goldstein</span></a>
     <nav class="links">
       <a href="index.html">Home</a>
-      <a href="why-care.html">Why Care?</a>
-      <a href="cost-breakdown.html">Cost Breakdown</a>
+      <a href="why-ltc.html">Why LTC?</a>
+      <a href="explore-plans.html">Explore Plans</a>
+      <a href="calculate-plans.html">Calculate Plans</a>
       <a href="about.html" class="active">About Les</a>
     </nav>
     <a class="nav-phone" href="tel:7736801006">☎ 773-680-1006</a>
@@ -327,8 +333,8 @@
   <div class="hero-photo"></div>
   <div class="wrap hero-inner">
     <span class="eyebrow">About Les</span>
-    <h1>Twenty years of one focus.</h1>
-    <p class="lead">Not retirement planning in general. Not investments. Just long-term care — understanding it, planning for it, and helping families choose the right way to cover it.</p>
+    <h1>More than 40 years helping people make confident financial decisions.</h1>
+    <p class="lead">Les brings decades of experience across investment management, wealth planning, retirement planning, asset protection, estate planning strategies, and long-term care. Today, he applies that broader financial perspective exclusively to helping individuals and couples prepare for long-term care.</p>
   </div>
 </section>
 
@@ -338,12 +344,19 @@
       <img src="images/les-headshot.jpg" alt="Les Goldstein">
     </div>
     <div class="bio-copy reveal">
-      <p>Twenty years ago, in conversation after conversation with people approaching retirement, I kept seeing the same blind spot. People had a plan for the market, a plan for their income, a plan for their taxes — but no plan at all for the one thing statistically most likely to derail all of it: needing long-term care.</p>
-      <p>So I made that my focus. Not as one more product I offer alongside everything else, but as the entire practice. I've spent the years since helping people understand what long-term care actually costs, what triggers the need for it, and which of the several ways to pay for it actually fits their health, their assets, and their goals.</p>
-      <p>I had one client who needed care for eleven years. Between 2007 and 2018, she went through more than $1.3 million of her own savings — everything she had, except her condominium. She had planned well in every other way. Long-term care was the one piece she hadn't gotten to yet. That gap is the reason this work matters to me.</p>
+      <p>Retirement is not just about building wealth. It is about protecting the life you have worked so hard to create.</p>
+      <p>For more than 40 years, I have helped individuals and couples make informed financial decisions with confidence. Before founding Personal Financial Strategies, Inc. in 1996, I served as a Vice President at a major Wall Street investment firm, where I gained firsthand experience in investment management and wealth planning. That experience reinforced an important lesson: accumulating wealth is only part of the equation; protecting it is just as important.</p>
+      <p>During my career, I spent more than 25 years helping clients grow, preserve, and transfer their wealth through comprehensive financial planning. My work centered on asset protection, estate planning strategies, retirement planning, and long-term care planning, always with the goal of helping clients protect what they had worked so hard to build.</p>
+      <p>I retired from Personal Financial Strategies in 2022, leaving the firm in capable hands. Soon afterward, I chose to return to the financial-planning profession with one exclusive focus: helping individuals and couples prepare for the possibility of long-term care. I enjoy working, but more importantly, I value the opportunity to help people make decisions that can profoundly affect their lives and their families. I believe this work is as important as any business role I have ever undertaken.</p>
+      <p>Why? Because one unexpected health event can jeopardize a lifetime of careful planning. Long-term care is not simply an insurance decision; it is a family decision. It can affect your financial security, your independence, your choices, and the people you love most. Helping individuals and couples prepare for that possibility is both a privilege and a responsibility that I take very seriously.</p>
+      <p>My passion for educating others also led me to write <em>The Big Picture Retirement Planning: From 30,000 Feet</em>, a book designed to simplify the often-complex world of retirement planning. Throughout my career, I have believed that informed clients make better decisions. My role is to educate first, listen carefully, and help you understand your options so you can move forward with confidence.</p>
+      <p>As an independent long-term care insurance advisor, my loyalty is to my clients, not to any insurance company. If you do not need coverage, if your existing policy remains your best option, or if purchasing coverage would not be financially appropriate, I will tell you directly. When coverage does make sense, I compare solutions from leading insurance carriers and recommend a plan based on your health, financial goals, family circumstances, and budget.</p>
+      <p>My commitment is not to sell a particular policy. It is to help you make the right decision for your future. That client-first philosophy has guided me throughout my career, and it remains the foundation of my work today.</p>
+      <p>Planning ahead is not about expecting the worst. It is about protecting your independence, preserving your retirement savings, reducing the burden on your loved ones, and gaining the confidence that comes from being prepared.</p>
+      <p>I look forward to helping you do exactly that.</p>
       <div class="signature">
         <span class="name">Les Goldstein</span>
-        <span class="title">Long-Term Care Insurance Specialist &nbsp;·&nbsp; Chicago, IL</span>
+        <span class="title">Independent Long-Term Care Insurance Advisor &nbsp;·&nbsp; Chicago, IL</span>
       </div>
     </div>
   </div>
@@ -353,23 +366,23 @@
   <div class="wrap">
     <div class="approach-head reveal">
       <h2>How I approach these conversations</h2>
-      <p>No pressure, no one-size-fits-all pitch — just a clear look at whether this makes sense for you, and if so, what shape it should take.</p>
+      <p>Decades of financial-planning experience shape the way I look at long-term care. The policy is only one piece of a much larger financial and family picture.</p>
     </div>
     <div class="approach-grid">
       <div class="approach-card reveal">
         <span class="tag">Education first</span>
         <h3>Understand before you decide</h3>
-        <p>Before we talk about any product, we talk about what long-term care actually is, what triggers it, and what it could cost — so any decision you make is one you actually understand.</p>
+        <p>Before we talk about any product, we talk about what long-term care actually is, what triggers it, and what it could cost - so any decision you make is one you fully understand.</p>
       </div>
       <div class="approach-card reveal">
         <span class="tag">No forced fit</span>
         <h3>Your situation drives the plan</h3>
-        <p>Self-insuring, traditional coverage, or a hybrid plan — which one makes sense depends entirely on your health, assets, and goals. I won't push the same answer on every family.</p>
+        <p>Traditional coverage, LTC + life insurance, or LTC + annuities can each make sense for different reasons. Your health, assets, goals, family circumstances, and budget should drive the decision.</p>
       </div>
       <div class="approach-card reveal">
         <span class="tag">Honest, either way</span>
         <h3>Sometimes the answer is "you're fine"</h3>
-        <p>If you don't need a policy, or wouldn't qualify for one, I'll tell you that directly after we've talked it through — not after a sales pitch.</p>
+        <p>If you do not need a policy, if your current coverage remains the better choice, or if new coverage is not financially appropriate, I will tell you directly.</p>
       </div>
     </div>
   </div>
@@ -378,24 +391,32 @@
 <section class="cred-section">
   <div class="wrap">
     <div class="cred-head reveal">
-      <h2>Background & credentials</h2>
+      <h2>A career built on the full financial picture</h2>
     </div>
     <div class="cred-list">
       <div class="cred-item reveal">
         <span class="mark">✓</span>
-        <span>20+ years focused specifically on long-term care insurance planning</span>
+        <span>More than 40 years helping individuals and couples make informed financial decisions</span>
       </div>
       <div class="cred-item reveal">
         <span class="mark">✓</span>
-        <span>Licensed insurance professional, based in Chicago, IL</span>
+        <span>Former Vice President at a major Wall Street investment firm with experience in investment management and wealth planning</span>
       </div>
       <div class="cred-item reveal">
         <span class="mark">✓</span>
-        <span>Illinois Partnership Qualified plan options available</span>
+        <span>Founded Personal Financial Strategies, Inc. in 1996 and spent more than 25 years in comprehensive financial planning</span>
       </div>
       <div class="cred-item reveal">
         <span class="mark">✓</span>
-        <span>Works directly with carriers including National Guardian Life (EssentialLTC)</span>
+        <span>Experience spanning retirement planning, asset protection, estate planning strategies, wealth preservation, and long-term care planning</span>
+      </div>
+      <div class="cred-item reveal">
+        <span class="mark">✓</span>
+        <span>Author of <em>The Big Picture Retirement Planning: From 30,000 Feet</em>, written to make retirement planning easier to understand</span>
+      </div>
+      <div class="cred-item reveal">
+        <span class="mark">✓</span>
+        <span>Independent long-term care insurance advisor focused on education first and comparing solutions around the client's needs</span>
       </div>
     </div>
   </div>
@@ -404,10 +425,10 @@
 <section class="cta-banner">
   <div class="wrap">
     <h2>Ready to talk it through?</h2>
-    <p>No pressure, no pitch — just a conversation about whether this makes sense for you.</p>
+    <p>A conversation with Les starts with your situation, your questions, and what you want to protect.</p>
     <div class="cta-row">
       <a href="tel:7736801006" class="btn btn-primary">Call 773-680-1006</a>
-      <a href="mailto:lgoldsteinpfs@gmail.com" class="btn btn-ghost-light">Email Les</a>
+      <a href="mailto:les@longtermcarebylbg.com" class="btn btn-ghost-light">Email Les</a>
     </div>
   </div>
 </section>
@@ -417,7 +438,7 @@
     <div class="wordmark2">Long-Term Care by Les Goldstein</div>
     <div class="contact-block">
       <a href="tel:7736801006">773-680-1006</a>
-      <a href="mailto:lgoldsteinpfs@gmail.com">lgoldsteinpfs@gmail.com</a>
+      <a href="mailto:les@longtermcarebylbg.com">les@longtermcarebylbg.com</a>
       <span>Chicago, IL</span>
     </div>
   </div>

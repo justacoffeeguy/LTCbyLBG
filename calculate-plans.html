@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Calculate Plans | Long-Term Care by Les Goldstein</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oak-bg:#F3ECE0;
+  --oak-warm:#B98A5E;
+  --oak-deep:#8A6842;
+  --green-deep:#3E4E58;
+  --green-soft:#7C93A0;
+  --cream-card:#FBF7EF;
+  --ink:#2B2420;
+  --ink-muted:#6B5D4F;
+  --line:#E1D4BF;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--oak-bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6}
+h1,h2,h3,.serif{font-family:'Source Serif 4',serif;color:var(--green-deep);margin:0}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+header{position:sticky;top:0;z-index:50;background:rgba(243,236,224,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);transition:padding .25s ease,box-shadow .25s ease}
+header.scrolled{box-shadow:0 4px 16px rgba(43,36,32,.06)}
+header.scrolled .nav-inner{padding-top:12px;padding-bottom:12px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:var(--max);margin:0 auto;gap:16px;transition:padding .25s ease}
+.wordmark{font-family:'Source Serif 4',serif;font-weight:600;font-size:18px;color:var(--green-deep);text-decoration:none;white-space:nowrap}
+.wordmark span{color:var(--oak-deep)}
+nav.links{display:flex;gap:20px;font-size:14px;font-weight:500}
+nav.links a{text-decoration:none;color:var(--green-soft);padding:4px 0;white-space:nowrap}
+nav.links a.active{color:var(--green-deep);font-weight:600}
+nav.links a:hover{color:var(--green-deep)}
+.nav-phone{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--green-deep);text-decoration:none;white-space:nowrap;border:1px solid var(--oak-warm);padding:8px 14px;border-radius:30px;transition:background .15s ease;flex-shrink:0}
+.nav-phone:hover{background:var(--cream-card)}
+.hero{position:relative;min-height:calc(72vh - 75px);display:flex;align-items:flex-end;overflow:hidden;background:var(--green-deep)}
+.hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(25,33,38,.56),rgba(25,33,38,.18)),linear-gradient(0deg,rgba(25,33,38,.84),rgba(25,33,38,.12) 75%),url('images/cost-breakdown-hero.jpg');background-position:center,center,center 30%;background-size:cover;background-repeat:no-repeat}
+.hero-inner{position:relative;z-index:2;padding:70px 0 62px;width:100%}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--oak-warm);font-weight:700;margin-bottom:14px}
+.hero h1{font-size:clamp(40px,5.2vw,64px);font-weight:600;line-height:1.04;max-width:14ch;color:#fff;text-wrap:balance}
+.hero p{margin:20px 0 0;font-size:clamp(16px,1.5vw,19px);color:rgba(255,255,255,.9);max-width:59ch;line-height:1.65}
+.intro{background:#E7ECEE;border-bottom:1px solid var(--line);padding:42px 0}
+.intro-inner{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
+.intro p{margin:0;font-size:16px;line-height:1.72;max-width:74ch}
+.intro a{font-size:14px;font-weight:700;color:var(--green-deep);text-decoration:none;white-space:nowrap;border-bottom:1px solid var(--oak-warm);padding-bottom:2px}
+.calc-section{padding:64px 0 88px}
+.calc-head{max-width:74ch;margin-bottom:28px}
+.calc-head h2{font-size:clamp(25px,3vw,34px);font-weight:600}
+.calc-head p{color:var(--ink-muted);font-size:16px;margin:10px 0 0;line-height:1.7}
+.calc-frame-wrap{border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(62,78,88,.08);background:#fff}
+iframe.calc-frame{width:100%;height:1750px;border:0;display:block;background:#fff}
+.note{font-size:12px;color:var(--ink-muted);line-height:1.6;margin:18px 0 0}
+.closing{background:linear-gradient(135deg,#3E4E58,#2D3941);padding:72px 0;text-align:center}
+.closing h2{color:#fff;font-size:clamp(28px,3.4vw,38px);font-weight:600;max-width:22ch;margin:0 auto 14px}
+.closing p{color:rgba(255,255,255,.82);font-size:16px;max-width:58ch;margin:0 auto 28px}
+.btn{display:inline-flex;align-items:center;padding:13px 24px;border-radius:8px;background:var(--oak-warm);color:#2B2420;text-decoration:none;font-weight:700;font-size:15px}
+footer{background:var(--green-deep);color:#EFE9DC;padding:56px 0 40px}
+.footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px}
+.wordmark2{font-family:'Source Serif 4',serif;font-size:20px;font-weight:600;color:#fff}
+.contact-block{display:flex;flex-direction:column;gap:6px;font-size:15px}
+footer a{text-decoration:none;color:#EFE9DC}
+.foot-fine{margin-top:36px;padding-top:24px;border-top:1px solid rgba(239,233,220,.18);font-size:12.5px;color:#B9C1B7;line-height:1.6}
+@media(max-width:920px){nav.links{display:none}.intro-inner{grid-template-columns:1fr}.hero{min-height:64vh}iframe.calc-frame{height:2200px}}
+@media(max-width:560px){.wrap{padding-left:20px;padding-right:20px}.nav-inner{padding-left:20px;padding-right:20px}.wordmark{font-size:16px}.nav-phone{font-size:0;padding:8px 11px}.nav-phone::after{content:'Call Les';font-size:13px}.hero{min-height:58vh}.hero-inner{padding:52px 0 46px}iframe.calc-frame{height:2450px}}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">Long-Term Care <span>by Les Goldstein</span></a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="why-ltc.html">Why LTC?</a>
+      <a href="explore-plans.html">Explore Plans</a>
+      <a href="calculate-plans.html" class="active">Calculate Plans</a>
+      <a href="about.html">About Les</a>
+    </nav>
+    <a class="nav-phone" href="tel:7736801006">☎ 773-680-1006</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Calculate Plans</span>
+    <h1>Put the numbers around your plan.</h1>
+    <p>Estimate future care costs, adjust timing and care assumptions, and see how different levels of insurance protection could change the financial exposure left to you and your family.</p>
+  </div>
+</section>
+<section class="intro">
+  <div class="wrap intro-inner">
+    <p>This calculator is an educational planning tool-not a policy illustration or quote. Use it to understand the size of the risk and the moving parts of a plan, then compare actual product options based on your health, age, assets and goals.</p>
+    <a href="explore-plans.html">Review the three plan types →</a>
+  </div>
+</section>
+<section class="calc-section">
+  <div class="wrap">
+    <div class="calc-head reveal">
+      <span class="eyebrow">Interactive Planning Tool</span>
+      <h2>Build your estimate.</h2>
+      <p>Change any assumption below. The calculator updates the projected care cost, available insurance benefit, and the portion of the risk that may remain uncovered.</p>
+    </div>
+    <div class="calc-frame-wrap reveal">
+      <iframe src="calculator.html" class="calc-frame" title="Long-Term Care Planning Calculator"></iframe>
+    </div>
+    <p class="note">For illustration and educational purposes only. Results vary based on assumptions entered and do not represent a recommendation, policy illustration, guarantee of benefits, premium quote or determination of eligibility.</p>
+  </div>
+</section>
+<section class="closing">
+  <div class="wrap">
+    <h2 class="reveal">The numbers help frame the conversation.</h2>
+    <p class="reveal">A real plan still has to account for underwriting, benefit design, inflation protection, premium structure and the type of policy that fits your priorities.</p>
+    <a class="btn reveal" href="about.html">Talk Through Your Results →</a>
+  </div>
+</section>
+<footer>
+  <div class="wrap footer-grid">
+    <div class="wordmark2">Long-Term Care by Les Goldstein</div>
+    <div class="contact-block"><a href="tel:7736801006">773-680-1006</a><a href="mailto:les@longtermcarebylbg.com">les@longtermcarebylbg.com</a><span>Chicago, IL</span></div>
+  </div>
+  <div class="wrap foot-fine">This content is for informational purposes only, based on information currently available, and is not intended to serve as the basis for any financial or purchasing decision or to provide specific legal or tax advice. Results shown by the calculator are illustrations only and will vary. Product and feature availability, underwriting, premiums, tax treatment and benefits vary by state, carrier and individual circumstances.</div>
+</footer>
+<script>
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+revealEls.forEach(el=>io.observe(el));
+const siteHeader=document.querySelector('header');
+const onScroll=()=>siteHeader.classList.toggle('scrolled',window.scrollY>12);
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</body>
+</html>
