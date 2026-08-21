@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Calculate Plans | Long-Term Care by Les Goldstein</title>
+<title>Calculate Long-Term Care Costs | Les Goldstein</title>
+<meta name="description" content="See what long-term care actually costs where you live, how fast it grows, and how much of it a plan would cover." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,6 +19,7 @@
   --ink:#2B2420;
   --ink-muted:#6B5D4F;
   --line:#E1D4BF;
+  --blue-band:#E7ECEE;
   --max:1120px;
 }
 *{box-sizing:border-box}
@@ -26,6 +28,8 @@ body{margin:0;background:var(--oak-bg);color:var(--ink);font-family:'Inter',sans
 h1,h2,h3,.serif{font-family:'Source Serif 4',serif;color:var(--green-deep);margin:0}
 a{color:inherit}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+/* NAV */
 header{position:sticky;top:0;z-index:50;background:rgba(243,236,224,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);transition:padding .25s ease,box-shadow .25s ease}
 header.scrolled{box-shadow:0 4px 16px rgba(43,36,32,.06)}
 header.scrolled .nav-inner{padding-top:12px;padding-bottom:12px}
@@ -38,36 +42,67 @@ nav.links a.active{color:var(--green-deep);font-weight:600}
 nav.links a:hover{color:var(--green-deep)}
 .nav-phone{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--green-deep);text-decoration:none;white-space:nowrap;border:1px solid var(--oak-warm);padding:8px 14px;border-radius:30px;transition:background .15s ease;flex-shrink:0}
 .nav-phone:hover{background:var(--cream-card)}
-.hero{position:relative;min-height:calc(72vh - 75px);display:flex;align-items:flex-end;overflow:hidden;background:var(--green-deep)}
-.hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(25,33,38,.56),rgba(25,33,38,.18)),linear-gradient(0deg,rgba(25,33,38,.84),rgba(25,33,38,.12) 75%),url('images/calculate-plans-hero.jpg');background-position:center,center,center 30%;background-size:cover;background-repeat:no-repeat}
+
+/* HERO */
+.hero{position:relative;height:calc(100svh - 75px);min-height:610px;display:flex;align-items:flex-end;overflow:hidden;background:#34434c}
+.hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(25,33,38,.56),rgba(25,33,38,.18)),linear-gradient(0deg,rgba(25,33,38,.84),rgba(25,33,38,.12) 75%),url('images/calculate-hero.jpg');background-position:center,center,center 45%;background-size:cover;background-repeat:no-repeat}
 .hero-inner{position:relative;z-index:2;padding:70px 0 62px;width:100%}
 .eyebrow{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--oak-warm);font-weight:700;margin-bottom:14px}
-.hero h1{font-size:clamp(40px,5.2vw,64px);font-weight:600;line-height:1.04;max-width:14ch;color:#fff;text-wrap:balance}
-.hero p{margin:20px 0 0;font-size:clamp(16px,1.5vw,19px);color:rgba(255,255,255,.9);max-width:59ch;line-height:1.65}
-.intro{background:#E7ECEE;border-bottom:1px solid var(--line);padding:42px 0}
-.intro-inner{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
-.intro p{margin:0;font-size:16px;line-height:1.72;max-width:74ch}
-.intro a{font-size:14px;font-weight:700;color:var(--green-deep);text-decoration:none;white-space:nowrap;border-bottom:1px solid var(--oak-warm);padding-bottom:2px}
-.calc-section{padding:64px 0 88px}
-.calc-head{max-width:74ch;margin-bottom:28px}
-.calc-head h2{font-size:clamp(25px,3vw,34px);font-weight:600}
-.calc-head p{color:var(--ink-muted);font-size:16px;margin:10px 0 0;line-height:1.7}
-.calc-frame-wrap{border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(62,78,88,.08);background:#fff}
-iframe.calc-frame{width:100%;height:1750px;border:0;display:block;background:#fff}
-.note{font-size:12px;color:var(--ink-muted);line-height:1.6;margin:18px 0 0}
-.closing{background:linear-gradient(135deg,#3E4E58,#2D3941);padding:72px 0;text-align:center}
+.hero h1{font-size:clamp(40px,5.2vw,64px);font-weight:600;line-height:1.04;max-width:16ch;color:#fff;text-wrap:balance}
+.hero p.lead{margin:20px 0 0;font-size:clamp(16px,1.5vw,19px);color:rgba(255,255,255,.9);max-width:59ch;line-height:1.65}
+.hero-cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;padding:13px 24px;border-radius:8px;background:var(--oak-warm);color:#2B2420;text-decoration:none;font-weight:700;font-size:15px}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff}
+
+/* NUMBERS */
+.numbers{background:var(--cream-card);border-bottom:1px solid var(--line);padding:66px 0 72px}
+.numbers h2{font-size:clamp(27px,3.4vw,40px);font-weight:600;line-height:1.14;max-width:24ch}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.stat{background:var(--oak-bg);border:1px solid var(--line);border-radius:15px;padding:28px 26px}
+.stat .fig{font-family:'Source Serif 4',serif;font-size:clamp(40px,4.6vw,56px);line-height:1;color:var(--green-deep);font-weight:600}
+.stat p{margin:14px 0 0;font-size:14.5px;color:var(--ink-muted);line-height:1.62}
+.numbers .after{margin:28px 0 0;font-size:16px;color:var(--ink);max-width:62ch;line-height:1.72}
+
+/* HOW TO USE */
+.howto{padding:72px 0;border-bottom:1px solid var(--line)}
+.howto-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:start}
+.howto h2{font-size:clamp(27px,3.1vw,36px);font-weight:600;line-height:1.16}
+.howto p.intro{font-size:16.5px;line-height:1.75;margin:16px 0 0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.step{background:var(--cream-card);border:1px solid var(--line);border-radius:14px;padding:24px 24px 26px}
+.step .num{font-family:'Source Serif 4',serif;font-size:15px;color:var(--oak-deep);font-weight:700;display:block;margin-bottom:6px}
+.step h3{font-size:18px;line-height:1.22}
+.step p{margin:8px 0 0;font-size:14px;color:var(--ink-muted);line-height:1.6}
+
+/* WIDGET */
+.calc{background:var(--blue-band);border-bottom:1px solid var(--line);padding:54px 0 0}
+.calc .section-head{max-width:70ch}
+.calc .section-head h2{font-size:clamp(27px,3.1vw,36px);font-weight:600;line-height:1.14}
+.calc .section-head p{font-size:16px;color:var(--ink-muted);margin:10px 0 0;line-height:1.7}
+.calc-shell{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(62,78,88,.07)}
+#cs-cost-of-care-widget-iframe{border:0;display:block;width:100%;height:760px;min-height:700px}
+@media(max-width:560px){#cs-cost-of-care-widget-wrapper{min-width:0}#cs-cost-of-care-widget-iframe{height:852px;min-height:852px}}
+
+/* CTA */
+.closing{background:linear-gradient(135deg,#3E4E58,#2D3941);padding:78px 0;text-align:center}
 .closing h2{color:#fff;font-size:clamp(28px,3.4vw,38px);font-weight:600;max-width:22ch;margin:0 auto 14px}
 .closing p{color:rgba(255,255,255,.82);font-size:16px;max-width:58ch;margin:0 auto 28px}
-.btn{display:inline-flex;align-items:center;padding:13px 24px;border-radius:8px;background:var(--oak-warm);color:#2B2420;text-decoration:none;font-weight:700;font-size:15px}
+
+/* SOURCES / FOOTER */
+.sources{background:var(--cream-card);padding:36px 0;border-top:1px solid var(--line)}
+.sources summary{cursor:pointer;color:var(--green-deep);font-weight:600;font-size:14px}
+.sources p{font-size:12px;color:var(--ink-muted);line-height:1.7;max-width:90ch}
 footer{background:var(--green-deep);color:#EFE9DC;padding:56px 0 40px}
 .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px}
 .wordmark2{font-family:'Source Serif 4',serif;font-size:20px;font-weight:600;color:#fff}
 .contact-block{display:flex;flex-direction:column;gap:6px;font-size:15px}
 footer a{text-decoration:none;color:#EFE9DC}
 .foot-fine{margin-top:36px;padding-top:24px;border-top:1px solid rgba(239,233,220,.18);font-size:12.5px;color:#B9C1B7;line-height:1.6}
-@media(max-width:920px){nav.links{display:none}.intro-inner{grid-template-columns:1fr}.hero{min-height:64vh}iframe.calc-frame{height:2200px}}
-@media(max-width:560px){.wrap{padding-left:20px;padding-right:20px}.nav-inner{padding-left:20px;padding-right:20px}.wordmark{font-size:16px}.nav-phone{font-size:0;padding:8px 11px}.nav-phone::after{content:'Call Les';font-size:13px}.hero{min-height:58vh}.hero-inner{padding:52px 0 46px}iframe.calc-frame{height:2450px}}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:980px){.howto-grid{grid-template-columns:1fr;gap:28px}}
+@media(max-width:920px){nav.links{display:none}.hero{min-height:560px}.stat-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{padding-left:20px;padding-right:20px}.nav-inner{padding-left:20px;padding-right:20px}.wordmark{font-size:16px}.nav-phone{font-size:0;padding:8px 11px}.nav-phone::after{content:'Call Les';font-size:13px}.hero{height:calc(100svh - 75px);min-height:520px}.hero-inner{padding:52px 0 46px}.steps{grid-template-columns:1fr}.numbers,.howto,.calc{padding-top:54px;padding-bottom:54px}}
 </style>
 </head>
 <body>
@@ -81,50 +116,121 @@ footer a{text-decoration:none;color:#EFE9DC}
       <a href="calculate-plans.html" class="active">Calculate Plans</a>
       <a href="about.html">About Les</a>
     </nav>
-    <a class="nav-phone" href="tel:7736801006">☎ 773-680-1006</a>
+    <a class="nav-phone" href="tel:7736801006">&#9742; 773-680-1006</a>
   </div>
 </header>
+
 <section class="hero">
   <div class="hero-photo"></div>
   <div class="wrap hero-inner">
     <span class="eyebrow">Calculate Plans</span>
-    <h1>Run the numbers.</h1>
-    <p>See how time, care costs, and insurance coverage can change the picture.</p>
+    <h1>What would care actually cost you?</h1>
+    <p class="lead">Care prices are local, and they climb every year. Start with real numbers for your state before you decide how to cover them.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#calculator">Run the numbers &#8594;</a>
+      <a class="btn ghost" href="tel:7736801006">Talk to Les</a>
+    </div>
   </div>
 </section>
-<section class="intro">
-  <div class="wrap intro-inner">
-    <p>This calculator is an educational planning tool-not a policy illustration or quote. Use it to understand the size of the risk and the moving parts of a plan, then compare actual product options based on your health, age, assets and goals.</p>
-    <a href="explore-plans.html">Review the three plan types →</a>
-  </div>
-</section>
-<section class="calc-section">
+
+<section class="numbers">
   <div class="wrap">
-    <div class="calc-head reveal">
-      <span class="eyebrow">Interactive Planning Tool</span>
-      <h2>Build your estimate.</h2>
-      <p>Change any assumption below. The calculator updates the projected care cost, available insurance benefit, and the portion of the risk that may remain uncovered.</p>
+    <span class="eyebrow">The Baseline</span>
+    <h2 class="reveal">National averages are only a starting point. Your state can be far higher.</h2>
+    <div class="stat-grid">
+      <div class="stat reveal"><div class="fig">$70,751</div><p>Average cost of one year of in-home care, at 44 hours a week.</p></div>
+      <div class="stat reveal"><div class="fig">$105,921</div><p>Average year in a nursing home today.</p></div>
+      <div class="stat reveal"><div class="fig">$210,760</div><p>What that same nursing home year is projected to cost in twenty years.</p></div>
     </div>
-    <div class="calc-frame-wrap reveal">
-      <iframe src="calculator.html" class="calc-frame" title="Long-Term Care Planning Calculator"></iframe>
-    </div>
-    <p class="note">For illustration and educational purposes only. Results vary based on assumptions entered and do not represent a recommendation, policy illustration, guarantee of benefits, premium quote or determination of eligibility.</p>
+    <p class="after reveal">Use the calculator below to swap these averages for the real cost of care where you live.</p>
   </div>
 </section>
+
+<section class="howto">
+  <div class="wrap howto-grid">
+    <div class="reveal">
+      <span class="eyebrow">How To Use It</span>
+      <h2>A planning tool, not a quote</h2>
+      <p class="intro">It shows the size of the risk and the pieces that move it. What a plan costs you depends on your age, health, and how the benefits are designed.</p>
+    </div>
+    <ul class="steps">
+      <li class="step reveal"><span class="num">01</span><h3>Pick your state</h3><p>Costs vary widely by region, and by city inside the same state.</p></li>
+      <li class="step reveal"><span class="num">02</span><h3>Choose the type of care</h3><p>In-home, assisted living, and nursing care each carry their own annual price.</p></li>
+      <li class="step reveal"><span class="num">03</span><h3>Look ahead</h3><p>Project the cost to the year you are likely to need care, not today.</p></li>
+      <li class="step reveal"><span class="num">04</span><h3>Bring the number to the table</h3><p>That figure is what a plan has to cover. We work backward from there.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="calc" id="calculator">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cost Of Care Calculator</span>
+      <h2>Find the cost of care near you</h2>
+      <p>Powered by CareScout, using national survey data on care costs by state and care type.</p>
+    </div>
+    <div class="calc-shell reveal">
+      <div id="cs-cost-of-care-widget-wrapper" style="font-family: sans-serif">
+        <iframe
+          id="cs-cost-of-care-widget-iframe"
+          title="CareScout Cost of Care Widget"
+          src="https://www.carescout.com/cost-of-care/widget?embed=1&amp;lang=en"
+          width="100%"
+          loading="lazy"
+          referrerpolicy="origin-when-cross-origin"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+          style="border: 0; display: block; height: 760px"
+        ></iframe>
+        <div id="cs-cost-of-care-link-wrapper" style="display: flex; justify-content: center; margin: 20px 20px 32px">
+          <a
+            id="cs-cost-of-care-link"
+            href="https://www.carescout.com/cost-of-care?utm_source=coc-widget&amp;utm_medium=referral&amp;utm_campaign=2026_03_aw_wgt-embr_cs-promo_nat_all_all&amp;utm_content=back-link"
+            target="_blank"
+            rel="noopener"
+            style="display:flex;flex-direction:row;gap:8px;justify-content:center;align-items:center;color:#333;max-width:415px;text-decoration:none"
+          >
+            <div id="cs-cost-of-care-link-svg-wrapper" style="display: block">
+              <svg id="cs-cost-of-care-link-svg" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="44" height="44" rx="8" fill="#7B40D5" />
+                <path fill="#fff" d="M22.3318 10.0447C28.7834 10.0448 33.0267 13.3887 33.8072 18.4925c.0332.2148-.1365.4051-.3537.4051h-4.8569c-.1695 0-.3154-.118-.3614-.2814-.6701-2.389-2.7616-3.8863-5.8706-3.8864-4.263 0-6.718 2.8436-6.718 7.2702 0 4.4264 2.455 7.2692 6.718 7.2692 3.1091 0 5.2005-1.4972 5.8706-3.8864.0456-.1634.1919-.2814.3614-.2814h4.8569c.2168 0 .3864.1904.3537.4051-.7804 5.1039-5.0241 8.4487-11.4754 8.4487-7.4279 0-12.1432-5.0097-12.1432-11.9562 0-6.9464 4.7153-11.9543 12.1432-11.9543z" />
+              </svg>
+            </div>
+            <div id="cs-cost-of-care-link-text-wrapper" style="display: block">
+              <p id="cs-cost-of-care-link-text-header" style="font-weight: 600; margin: 0; padding: 0">CareScout&apos;s guide to cost of long-term care</p>
+              <p id="cs-cost-of-care-link-text" style="font-weight: 500; margin: 0; padding: 0">Long-term care can be expensive, learn more about Care Plans, cost of care trends and insights.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="closing">
   <div class="wrap">
-    <h2 class="reveal">The numbers help frame the conversation.</h2>
-    <p class="reveal">A real plan still has to account for underwriting, benefit design, inflation protection, premium structure and the type of policy that fits your priorities.</p>
-    <a class="btn reveal" href="about.html">Talk Through Your Results →</a>
+    <h2 class="reveal">Now you know the number. Let's cover it.</h2>
+    <p class="reveal">A real plan still has to account for underwriting, benefit design, and inflation protection. That part is a conversation.</p>
+    <a class="btn reveal" href="explore-plans.html">Explore your options &#8594;</a>
   </div>
 </section>
+
+<section class="sources">
+  <div class="wrap">
+    <details>
+      <summary>Sources</summary>
+      <p>Nationwide, &quot;Compare long-term care costs from state to state,&quot; accessed July 12, 2024. CareScout Cost of Care Survey, carescout.com/cost-of-care. Results shown are illustrations only and will vary. They are not a policy illustration, premium quote, guarantee of benefits, or determination of eligibility.</p>
+    </details>
+  </div>
+</section>
+
 <footer>
   <div class="wrap footer-grid">
     <div class="wordmark2">Long-Term Care by Les Goldstein</div>
     <div class="contact-block"><a href="tel:7736801006">773-680-1006</a><a href="mailto:les@longtermcarebylbg.com">les@longtermcarebylbg.com</a><span>Chicago, IL</span></div>
   </div>
-  <div class="wrap foot-fine">This content is for informational purposes only, based on information currently available, and is not intended to serve as the basis for any financial or purchasing decision or to provide specific legal or tax advice. Results shown by the calculator are illustrations only and will vary. Product and feature availability, underwriting, premiums, tax treatment and benefits vary by state, carrier and individual circumstances.</div>
+  <div class="wrap foot-fine">This content is for informational purposes only, based on information currently available, and is not intended to serve as the basis for any financial or purchasing decision or to provide specific legal or tax advice. Product and feature availability, underwriting, premiums, tax treatment and benefits vary by state, carrier and individual circumstances.</div>
 </footer>
+
 <script>
 const revealEls=document.querySelectorAll('.reveal');
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
@@ -132,6 +238,16 @@ revealEls.forEach(el=>io.observe(el));
 const siteHeader=document.querySelector('header');
 const onScroll=()=>siteHeader.classList.toggle('scrolled',window.scrollY>12);
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+(function () {
+  function h(e) {
+    if (e.origin !== 'https://www.carescout.com') return;
+    var d = e.data, i = document.getElementById('cs-cost-of-care-widget-iframe');
+    d && d.type === 'careScoutCostOfCareWidgetContentHeightUpdate' && i && d.height && (i.style.height = d.height + 'px');
+  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', function () { window.addEventListener('message', h); })
+    : window.addEventListener('message', h);
+})();
 </script>
 </body>
 </html>

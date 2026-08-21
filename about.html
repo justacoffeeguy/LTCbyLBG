@@ -3,317 +3,105 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About Les | Long-Term Care by Les Goldstein</title>
+<title>About Les Goldstein | Long-Term Care Planning</title>
+<meta name="description" content="More than 40 years in financial planning shaped how Les Goldstein approaches long-term care - education first, no forced fit." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --oak-bg: #F3ECE0;
-    --oak-warm: #B98A5E;
-    --oak-deep: #8A6842;
-    --green-deep: #3E4E58;
-    --green-soft: #7C93A0;
-    --cream-card: #FBF7EF;
-    --ink: #2B2420;
-    --ink-muted: #6B5D4F;
-    --line: #E1D4BF;
-    --max: 1120px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:var(--oak-bg);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    line-height:1.6;
-  }
-  h1,h2,h3,.serif{
-    font-family:'Source Serif 4', serif;
-    color:var(--green-deep);
-    margin:0;
-  }
-  a{color:inherit}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px}
+:root{
+  --oak-bg:#F3ECE0;
+  --oak-warm:#B98A5E;
+  --oak-deep:#8A6842;
+  --green-deep:#3E4E58;
+  --green-soft:#7C93A0;
+  --cream-card:#FBF7EF;
+  --ink:#2B2420;
+  --ink-muted:#6B5D4F;
+  --line:#E1D4BF;
+  --blue-band:#E7ECEE;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--oak-bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6}
+h1,h2,h3,.serif{font-family:'Source Serif 4',serif;color:var(--green-deep);margin:0}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
 
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(243,236,224,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 28px;
-    max-width:var(--max); margin:0 auto;
-    gap:20px;
-  }
-  .wordmark{
-    font-family:'Source Serif 4', serif;
-    font-weight:600; font-size:19px;
-    color:var(--green-deep);
-    text-decoration:none;
-    white-space:nowrap;
-  }
-  .wordmark span{color:var(--oak-deep)}
-  nav.links{
-    display:flex; gap:28px;
-    font-size:15px; font-weight:500;
-  }
-  nav.links a{
-    text-decoration:none;
-    color:var(--green-soft);
-    position:relative;
-    padding:4px 0;
-  }
-  nav.links a.active{color:var(--green-deep); font-weight:600}
-  nav.links a:hover{color:var(--green-deep)}
-  .nav-phone{
-    display:flex; align-items:center; gap:8px;
-    font-weight:600; font-size:15px;
-    color:var(--green-deep);
-    text-decoration:none;
-    white-space:nowrap;
-    border:1px solid var(--oak-warm);
-    padding:8px 16px;
-    border-radius:30px;
-    transition:background .15s ease;
-  }
-  .nav-phone:hover{background:var(--cream-card)}
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:rgba(243,236,224,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);transition:padding .25s ease,box-shadow .25s ease}
+header.scrolled{box-shadow:0 4px 16px rgba(43,36,32,.06)}
+header.scrolled .nav-inner{padding-top:12px;padding-bottom:12px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:var(--max);margin:0 auto;gap:16px;transition:padding .25s ease}
+.wordmark{font-family:'Source Serif 4',serif;font-weight:600;font-size:18px;color:var(--green-deep);text-decoration:none;white-space:nowrap}
+.wordmark span{color:var(--oak-deep)}
+nav.links{display:flex;gap:20px;font-size:14px;font-weight:500}
+nav.links a{text-decoration:none;color:var(--green-soft);padding:4px 0;white-space:nowrap}
+nav.links a.active{color:var(--green-deep);font-weight:600}
+nav.links a:hover{color:var(--green-deep)}
+.nav-phone{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--green-deep);text-decoration:none;white-space:nowrap;border:1px solid var(--oak-warm);padding:8px 14px;border-radius:30px;transition:background .15s ease;flex-shrink:0}
+.nav-phone:hover{background:var(--cream-card)}
 
-  /* ---------- PAGE HERO ---------- */
-  .hero{
-    position:relative;
-    min-height:calc(100vh - 73px);
-    display:flex;
-    align-items:flex-end;
-    overflow:hidden;
-  }
-  header{transition:padding .25s ease, box-shadow .25s ease}
-  header.scrolled{box-shadow:0 4px 16px rgba(43,36,32,0.06)}
-  header.scrolled .nav-inner{padding-top:12px; padding-bottom:12px}
-  .nav-inner{transition:padding .25s ease}
-  .hero-photo{
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(0deg, rgba(30,38,43,0.78) 0%, rgba(30,38,43,0.32) 55%, rgba(30,38,43,0.1) 100%),
-      url('images/about-hero.jpg');
-    background-position: center, center 38%;
-    background-size: cover, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-attachment: scroll, fixed;
-  }
-  .hero-inner{
-    position:relative; z-index:2;
-    padding:56px 0 48px;
-    width:100%;
-  }
-  .eyebrow{
-    display:inline-block;
-    font-size:13px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--oak-warm); font-weight:600;
-    margin-bottom:14px;
-  }
-  .hero h1{
-    font-size:clamp(30px, 4.4vw, 46px);
-    font-weight:600;
-    line-height:1.14;
-    max-width:20ch;
-    color:#fff;
-  }
-  .hero p.lead{
-    margin-top:16px;
-    font-size:17px;
-    color:rgba(255,255,255,0.88);
-    max-width:56ch;
-  }
+/* HERO */
+.hero{position:relative;height:calc(100svh - 75px);min-height:610px;display:flex;align-items:flex-end;overflow:hidden;background:#2d3941}
+.hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(25,33,38,.58),rgba(25,33,38,.22)),linear-gradient(0deg,rgba(25,33,38,.82),rgba(25,33,38,.18) 70%),url('images/about-hero.jpg');background-position:center,center,center 55%;background-size:cover;background-repeat:no-repeat}
+.hero-inner{position:relative;z-index:2;padding:70px 0 62px;width:100%}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--oak-warm);font-weight:700;margin-bottom:14px}
+.hero h1{font-size:clamp(40px,5.2vw,64px);font-weight:600;line-height:1.04;max-width:16ch;color:#fff;text-wrap:balance}
+.hero p.lead{margin:20px 0 0;font-size:clamp(16px,1.5vw,19px);color:rgba(255,255,255,.9);max-width:59ch;line-height:1.65}
 
-  /* ---------- BIO SECTION ---------- */
-  .bio-section{
-    padding:70px 0 70px;
-  }
-  .bio-grid{
-    display:grid;
-    grid-template-columns:240px 1fr;
-    gap:56px;
-    align-items:start;
-  }
-  .photo-frame{
-    width:240px; height:290px;
-    border-radius:10px;
-    border:1px solid var(--oak-warm);
-    overflow:hidden;
-    flex-shrink:0;
-    background:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .photo-frame img{
-    width:100%; height:100%; object-fit:contain; object-position:center center; display:block;
-  }
-  .bio-copy p{
-    font-size:17px;
-    color:var(--ink);
-    max-width:64ch;
-    margin:0 0 18px;
-    line-height:1.7;
-  }
-  .signature{
-    margin-top:24px;
-  }
-  .signature .name{
-    font-family:'Caveat', cursive;
-    font-size:42px;
-    color:var(--green-deep);
-    display:block;
-    line-height:1;
-  }
-  .signature .title{
-    font-size:13px;
-    color:var(--ink-muted);
-    margin-top:4px;
-    letter-spacing:.02em;
-  }
+/* STORY */
+.story{padding:74px 0;border-bottom:1px solid var(--line)}
+.story-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.story-figure{overflow:hidden;border-radius:18px;background:#fff;border:1px solid var(--line)}
+.story-figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.story-figure figcaption{padding:18px 20px;font-size:14px;color:var(--ink-muted)}
+.story-figure figcaption strong{font-family:'Source Serif 4',serif;font-size:17px;color:var(--ink);display:block;margin-bottom:2px}
+.story h2{font-size:clamp(26px,3vw,32px);font-weight:600;line-height:1.18}
+.story .lead{font-family:'Source Serif 4',serif;font-size:clamp(21px,2.4vw,27px);line-height:1.4;color:var(--green-deep);margin:0}
+.story-body{margin-top:28px;display:flex;flex-direction:column;gap:18px;font-size:16px;line-height:1.75;color:var(--ink-muted)}
+.story-body em{font-style:italic;color:var(--ink)}
 
-  /* ---------- APPROACH ---------- */
-  .approach-section{
-    background:var(--cream-card);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:70px 0;
-  }
-  .approach-head{max-width:64ch; margin-bottom:36px}
-  .approach-head h2{font-size:clamp(24px,2.8vw,30px); font-weight:600}
-  .approach-head p{color:var(--ink-muted); font-size:16px; margin-top:10px}
-  .approach-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:24px;
-  }
-  .approach-card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:26px 24px;
-  }
-  .approach-card .tag{
-    font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
-    color:var(--oak-deep);
-  }
-  .approach-card h3{
-    font-size:18px; font-weight:600; margin-top:10px; margin-bottom:10px;
-  }
-  .approach-card p{
-    font-size:14.5px; color:var(--ink-muted); margin:0; line-height:1.6;
-  }
+/* APPROACH */
+.approach{padding:70px 0;background:var(--blue-band);border-bottom:1px solid var(--line)}
+.section-head{max-width:70ch;margin-bottom:30px}
+.section-head h2{font-size:clamp(27px,3.1vw,36px);font-weight:600;line-height:1.14}
+.section-head p{font-size:16px;color:var(--ink-muted);margin:10px 0 0;line-height:1.7}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.approach-card{background:var(--cream-card);border:1px solid var(--line);border-radius:15px;padding:28px 26px;border-top:3px solid var(--oak-warm)}
+.approach-card h3{font-size:20px;line-height:1.22;margin-bottom:9px}
+.approach-card p{margin:0;font-size:14.5px;color:var(--ink-muted);line-height:1.62}
 
-  /* ---------- CREDENTIALS ---------- */
-  .cred-section{
-    padding:70px 0;
-  }
-  .cred-head{max-width:60ch; margin-bottom:32px}
-  .cred-head h2{font-size:clamp(24px,2.8vw,30px); font-weight:600}
-  .cred-list{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:16px 40px;
-  }
-  .cred-item{
-    display:flex; gap:12px;
-    padding:14px 0;
-    border-bottom:1px solid var(--line);
-    font-size:15px;
-  }
-  .cred-item .mark{color:var(--oak-deep); font-weight:700; flex-shrink:0}
+/* CREDENTIALS */
+.credentials{padding:70px 0;border-bottom:1px solid var(--line)}
+.credentials h2{font-size:clamp(27px,3.1vw,36px);font-weight:600;line-height:1.14;max-width:24ch}
+.credentials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 28px;margin-top:32px;max-width:900px}
+.credentials-grid li{display:flex;gap:12px;font-size:15px;line-height:1.55;color:var(--ink-muted)}
+.credentials-grid .check{flex-shrink:0;color:var(--oak-warm);font-weight:700;font-size:17px;line-height:1}
 
-  /* ---------- CTA ---------- */
-  .cta-banner{
-    background:var(--green-deep);
-    padding:80px 0;
-    text-align:center;
-  }
-  .cta-banner h2{
-    color:#fff;
-    font-size:clamp(26px,3.4vw,36px);
-    font-weight:600;
-    max-width:20ch;
-    margin:0 auto 14px;
-  }
-  .cta-banner p{
-    color:rgba(255,255,255,0.82); font-size:16.5px; max-width:52ch; margin:0 auto 30px;
-  }
-  .cta-row{
-    display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
-  }
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:14px 26px;
-    border-radius:8px;
-    font-weight:600; font-size:15.5px;
-    text-decoration:none;
-    transition:transform .15s ease;
-  }
-  .btn-primary{
-    background:var(--oak-warm);
-    color:#2B2420;
-  }
-  .btn-primary:hover{transform:translateY(-1px)}
-  .btn-ghost-light{
-    color:#fff;
-    border:1px solid rgba(255,255,255,0.5);
-    background:transparent;
-  }
-  .btn-ghost-light:hover{background:rgba(255,255,255,0.1)}
+/* CTA */
+.closing{background:linear-gradient(135deg,#3E4E58,#2D3941);padding:78px 0;text-align:center}
+.closing h2{color:#fff;font-size:clamp(28px,3.4vw,38px);font-weight:600;max-width:22ch;margin:0 auto 14px}
+.closing p{color:rgba(255,255,255,.82);font-size:16px;max-width:58ch;margin:0 auto 28px}
+.btn{display:inline-flex;align-items:center;padding:13px 24px;border-radius:8px;background:var(--oak-warm);color:#2B2420;text-decoration:none;font-weight:700;font-size:15px}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff}
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    background:var(--green-deep);
-    color:#EFE9DC;
-    padding:56px 0 40px;
-  }
-  .footer-grid{
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;
-  }
-  footer .wordmark2{
-    font-family:'Source Serif 4', serif;
-    font-size:20px; font-weight:600; color:#fff;
-  }
-  footer .contact-block{
-    display:flex; flex-direction:column; gap:6px;
-    font-size:15px;
-  }
-  footer a{text-decoration:none; color:#EFE9DC}
-  footer a:hover{color:#fff}
-  .foot-fine{
-    margin-top:36px;
-    padding-top:24px;
-    border-top:1px solid rgba(239,233,220,0.18);
-    font-size:12.5px;
-    color:#B9C1B7;
-    line-height:1.6;
-  }
+/* FOOTER */
+footer{background:var(--green-deep);color:#EFE9DC;padding:56px 0 40px}
+.footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px}
+.wordmark2{font-family:'Source Serif 4',serif;font-size:20px;font-weight:600;color:#fff}
+.contact-block{display:flex;flex-direction:column;gap:6px;font-size:15px}
+footer a{text-decoration:none;color:#EFE9DC}
+.foot-fine{margin-top:36px;padding-top:24px;border-top:1px solid rgba(239,233,220,.18);font-size:12.5px;color:#B9C1B7;line-height:1.6}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:translateY(0)}
 
-  @media (max-width: 980px){
-    .approach-grid{grid-template-columns:1fr}
-    .cred-list{grid-template-columns:1fr}
-  }
-  @media (max-width: 860px){
-    .bio-grid{grid-template-columns:1fr}
-    .photo-frame{width:170px; height:210px}
-    nav.links{display:none}
-    .hero{min-height:78vh}
-    .hero-photo{background-attachment: scroll, scroll}
-  }
-
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
-  .reveal.in{opacity:1; transform:translateY(0)}
+@media(max-width:980px){.story-grid,.approach-grid,.credentials-grid{grid-template-columns:1fr;gap:28px}}
+@media(max-width:920px){nav.links{display:none}.hero{min-height:560px}}
+@media(max-width:560px){.wrap{padding-left:20px;padding-right:20px}.nav-inner{padding-left:20px;padding-right:20px}.wordmark{font-size:16px}.nav-phone{font-size:0;padding:8px 11px}.nav-phone::after{content:'Call Les';font-size:13px}.hero{height:calc(100svh - 75px);min-height:520px}.hero-inner{padding:52px 0 46px}.story,.approach,.credentials{padding-top:54px;padding-bottom:54px}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="nav-inner">
     <a href="index.html" class="wordmark">Long-Term Care <span>by Les Goldstein</span></a>
@@ -324,7 +112,7 @@
       <a href="calculate-plans.html">Calculate Plans</a>
       <a href="about.html" class="active">About Les</a>
     </nav>
-    <a class="nav-phone" href="tel:7736801006">☎ 773-680-1006</a>
+    <a class="nav-phone" href="tel:7736801006">&#9742; 773-680-1006</a>
   </div>
 </header>
 
@@ -337,97 +125,72 @@
   </div>
 </section>
 
-<section class="bio-section">
-  <div class="wrap bio-grid">
-    <div class="photo-frame reveal">
-      <img src="images/les-headshot.jpg" alt="Les Goldstein">
+<section class="story">
+  <div class="wrap story-grid">
+    <div class="reveal">
+      <figure class="story-figure">
+        <img src="images/les-headshot.jpg" alt="Les Goldstein, independent long-term care insurance advisor" loading="lazy">
+        <figcaption><strong>Les Goldstein</strong>Independent Long-Term Care Insurance Advisor - Chicago, IL</figcaption>
+      </figure>
     </div>
-    <div class="bio-copy reveal">
-      <p>Retirement is not just about building wealth. It is about protecting the life you have worked so hard to create.</p>
-      <p>For more than 40 years, I have helped individuals and couples make informed financial decisions with confidence. Before founding Personal Financial Strategies, Inc. in 1996, I served as a Vice President at a major Wall Street investment firm, where I gained firsthand experience in investment management and wealth planning. That experience reinforced an important lesson: accumulating wealth is only part of the equation; protecting it is just as important.</p>
-      <p>During my career, I spent more than 25 years helping clients grow, preserve, and transfer their wealth through comprehensive financial planning. My work centered on asset protection, estate planning strategies, retirement planning, and long-term care planning, always with the goal of helping clients protect what they had worked so hard to build.</p>
-      <p>I retired from Personal Financial Strategies in 2022, leaving the firm in capable hands. Soon afterward, I chose to return to the financial-planning profession with one exclusive focus: helping individuals and couples prepare for the possibility of long-term care. I enjoy working, but more importantly, I value the opportunity to help people make decisions that can profoundly affect their lives and their families. I believe this work is as important as any business role I have ever undertaken.</p>
-      <p>Why? Because one unexpected health event can jeopardize a lifetime of careful planning. Long-term care is not simply an insurance decision; it is a family decision. It can affect your financial security, your independence, your choices, and the people you love most. Helping individuals and couples prepare for that possibility is both a privilege and a responsibility that I take very seriously.</p>
-      <p>My passion for educating others also led me to write <em>The Big Picture Retirement Planning: From 30,000 Feet</em>, a book designed to simplify the often-complex world of retirement planning. Throughout my career, I have believed that informed clients make better decisions. My role is to educate first, listen carefully, and help you understand your options so you can move forward with confidence.</p>
-      <p>As an independent long-term care insurance advisor, my loyalty is to my clients, not to any insurance company. If you do not need coverage, if your existing policy remains your best option, or if purchasing coverage would not be financially appropriate, I will tell you directly. When coverage does make sense, I compare solutions from leading insurance carriers and recommend a plan based on your health, financial goals, family circumstances, and budget.</p>
-      <p>My commitment is not to sell a particular policy. It is to help you make the right decision for your future. That client-first philosophy has guided me throughout my career, and it remains the foundation of my work today.</p>
-      <p>Planning ahead is not about expecting the worst. It is about protecting your independence, preserving your retirement savings, reducing the burden on your loved ones, and gaining the confidence that comes from being prepared.</p>
-      <p>I look forward to helping you do exactly that.</p>
-      <div class="signature">
-        <span class="name">Les Goldstein</span>
-        <span class="title">Independent Long-Term Care Insurance Advisor &nbsp;·&nbsp; Chicago, IL</span>
+    <div class="reveal">
+      <p class="lead">Retirement isn't just about building wealth. It's about protecting the life you worked to create.</p>
+      <div class="story-body">
+        <p>I spent more than 40 years helping individuals and couples make financial decisions with confidence. Before founding Personal Financial Strategies in 1996, I was a Vice President at a major Wall Street investment firm. That work taught me something I still lead with: accumulating wealth is only half of it. Protecting it is the other half.</p>
+        <p>I retired from the firm in 2022 and came back to the profession with one focus - helping people prepare for the possibility of long-term care. One unexpected health event can undo a lifetime of careful planning, and this isn't really an insurance decision. It's a family one. It touches your independence, your savings, and the people closest to you.</p>
+        <p>I also wrote <em>The Big Picture Retirement Planning: From 30,000 Feet</em> because I've always believed informed clients make better decisions. My job is to educate first, listen carefully, and help you understand your options.</p>
+        <p>As an independent advisor, my loyalty is to you, not to a carrier. When coverage makes sense, I compare solutions from leading companies and recommend one based on your health, goals, family, and budget. My commitment isn't to sell a policy. It's to help you make the right call.</p>
+        <p>Planning ahead isn't about expecting the worst. It's about keeping your independence, protecting your savings, and easing what your family would otherwise carry alone.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="approach-section">
+<section class="approach">
   <div class="wrap">
-    <div class="approach-head reveal">
-      <h2>How I approach these conversations</h2>
-      <p>Decades of financial-planning experience shape the way I look at long-term care. The policy is only one piece of a much larger financial and family picture.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">How Les works</span>
+      <h2>How these conversations go</h2>
+      <p>The policy is one piece of a much larger financial and family picture.</p>
     </div>
     <div class="approach-grid">
       <div class="approach-card reveal">
-        <span class="tag">Education first</span>
-        <h3>Understand before you decide</h3>
-        <p>Before we talk about any product, we talk about what long-term care actually is, what triggers it, and what it could cost - so any decision you make is one you fully understand.</p>
+        <h3>Education first</h3>
+        <p>Before we talk about any product, we talk about what long-term care is, what triggers it, and what it could cost. Decisions come after that.</p>
       </div>
       <div class="approach-card reveal">
-        <span class="tag">No forced fit</span>
-        <h3>Your situation drives the plan</h3>
-        <p>Traditional coverage, LTC + life insurance, or LTC + annuities can each make sense for different reasons. Your health, assets, goals, family circumstances, and budget should drive the decision.</p>
+        <h3>No forced fit</h3>
+        <p>Traditional coverage, LTC + life, or LTC + annuity - your health, assets, goals, and budget decide, not a product menu.</p>
       </div>
       <div class="approach-card reveal">
-        <span class="tag">Honest, either way</span>
-        <h3>Sometimes the answer is "you're fine"</h3>
-        <p>If you do not need a policy, if your current coverage remains the better choice, or if new coverage is not financially appropriate, I will tell you directly.</p>
+        <h3>Honest either way</h3>
+        <p>If you don't need a policy, or your current one is still the better choice, I'll tell you directly.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cred-section">
+<section class="credentials">
   <div class="wrap">
-    <div class="cred-head reveal">
-      <h2>A career built on the full financial picture</h2>
-    </div>
-    <div class="cred-list">
-      <div class="cred-item reveal">
-        <span class="mark">✓</span>
-        <span>More than 40 years helping individuals and couples make informed financial decisions</span>
-      </div>
-      <div class="cred-item reveal">
-        <span class="mark">✓</span>
-        <span>Former Vice President at a major Wall Street investment firm with experience in investment management and wealth planning</span>
-      </div>
-      <div class="cred-item reveal">
-        <span class="mark">✓</span>
-        <span>Founded Personal Financial Strategies, Inc. in 1996 and spent more than 25 years in comprehensive financial planning</span>
-      </div>
-      <div class="cred-item reveal">
-        <span class="mark">✓</span>
-        <span>Experience spanning retirement planning, asset protection, estate planning strategies, wealth preservation, and long-term care planning</span>
-      </div>
-      <div class="cred-item reveal">
-        <span class="mark">✓</span>
-        <span>Author of <em>The Big Picture Retirement Planning: From 30,000 Feet</em>, written to make retirement planning easier to understand</span>
-      </div>
-      <div class="cred-item reveal">
-        <span class="mark">✓</span>
-        <span>Independent long-term care insurance advisor focused on education first and comparing solutions around the client's needs</span>
-      </div>
-    </div>
+    <h2 class="reveal">A career built on the full picture</h2>
+    <ul class="credentials-grid reveal">
+      <li><span class="check">&#10003;</span><span>More than 40 years helping individuals and couples make informed financial decisions</span></li>
+      <li><span class="check">&#10003;</span><span>Former Vice President at a major Wall Street investment firm</span></li>
+      <li><span class="check">&#10003;</span><span>Founded Personal Financial Strategies, Inc. in 1996 and spent 25+ years in comprehensive financial planning</span></li>
+      <li><span class="check">&#10003;</span><span>Experience across retirement planning, asset protection, estate strategies, and wealth preservation</span></li>
+      <li><span class="check">&#10003;</span><span>Author of The Big Picture Retirement Planning: From 30,000 Feet</span></li>
+      <li><span class="check">&#10003;</span><span>Independent long-term care advisor - loyalty to clients, not carriers</span></li>
+    </ul>
   </div>
 </section>
 
-<section class="cta-banner">
+<section class="closing">
   <div class="wrap">
-    <h2>Ready to talk it through?</h2>
-    <p>A conversation with Les starts with your situation, your questions, and what you want to protect.</p>
-    <div class="cta-row">
-      <a href="tel:7736801006" class="btn btn-primary">Call 773-680-1006</a>
-      <a href="mailto:les@longtermcarebylbg.com" class="btn btn-ghost-light">Email Les</a>
+    <h2 class="reveal">Ready to talk it through?</h2>
+    <p class="reveal">It starts with your situation, your questions, and what you want to protect.</p>
+    <div class="reveal" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn" href="tel:7736801006">Call Les &#8594;</a>
+      <a class="btn ghost" href="mailto:les@longtermcarebylbg.com">Email Les</a>
     </div>
   </div>
 </section>
@@ -435,39 +198,18 @@
 <footer>
   <div class="wrap footer-grid">
     <div class="wordmark2">Long-Term Care by Les Goldstein</div>
-    <div class="contact-block">
-      <a href="tel:7736801006">773-680-1006</a>
-      <a href="mailto:les@longtermcarebylbg.com">les@longtermcarebylbg.com</a>
-      <span>Chicago, IL</span>
-    </div>
+    <div class="contact-block"><a href="tel:7736801006">773-680-1006</a><a href="mailto:les@longtermcarebylbg.com">les@longtermcarebylbg.com</a><span>Chicago, IL</span></div>
   </div>
-  <div class="wrap foot-fine">
-    This content is for informational purposes only and is not intended to serve as the basis for any financial or purchasing decision, or to provide specific legal or tax advice. Product and feature availability may vary by state. Our firm provides insurance services and is not affiliated with the U.S. government or any governmental agency.
-  </div>
+  <div class="wrap foot-fine">This content is for informational purposes only, based on information currently available, and is not intended to serve as the basis for any financial or purchasing decision or to provide specific legal or tax advice. Product and feature availability, underwriting, premiums, tax treatment and benefits vary by state, carrier and individual circumstances.</div>
 </footer>
 
 <script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const groups = new Map();
-  revealEls.forEach(el=>{
-    const parent = el.parentElement;
-    const idx = groups.get(parent) || 0;
-    el.style.transitionDelay = (idx*0.08)+'s';
-    groups.set(parent, idx+1);
-  });
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.12});
-  revealEls.forEach(el=>io.observe(el));
-
-  const siteHeader = document.querySelector('header');
-  const onScroll = () => {
-    if(window.scrollY > 12){ siteHeader.classList.add('scrolled'); }
-    else{ siteHeader.classList.remove('scrolled'); }
-  };
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+revealEls.forEach(el=>io.observe(el));
+const siteHeader=document.querySelector('header');
+const onScroll=()=>siteHeader.classList.toggle('scrolled',window.scrollY>12);
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 </script>
-
 </body>
 </html>

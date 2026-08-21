@@ -44,7 +44,7 @@ nav.links a:hover{color:var(--green-deep)}
 .nav-phone:hover{background:var(--cream-card)}
 
 /* HERO */
-.hero{position:relative;min-height:calc(72vh - 75px);display:flex;align-items:flex-end;overflow:hidden;background:var(--green-deep)}
+.hero{position:relative;height:calc(100svh - 75px);min-height:610px;display:flex;align-items:flex-end;overflow:hidden;background:var(--green-deep)}
 .hero-photo{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(25,33,38,.56),rgba(25,33,38,.18)),linear-gradient(0deg,rgba(25,33,38,.84),rgba(25,33,38,.12) 75%),url('images/hero.jpg');background-position:center,center,center 30%;background-size:cover;background-repeat:no-repeat}
 .hero-inner{position:relative;z-index:2;padding:70px 0 62px;width:100%}
 .eyebrow{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--oak-warm);font-weight:700;margin-bottom:14px}
@@ -96,8 +96,8 @@ footer a{text-decoration:none;color:#EFE9DC}
 .foot-fine{margin-top:36px;padding-top:24px;border-top:1px solid rgba(239,233,220,.18);font-size:12.5px;color:#B9C1B7;line-height:1.6}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:translateY(0)}
 
-@media(max-width:920px){nav.links{display:none}.hero{min-height:64vh}.stat-grid{grid-template-columns:1fr}.basics-grid{grid-template-columns:1fr;gap:30px}}
-@media(max-width:560px){.wrap{padding-left:20px;padding-right:20px}.nav-inner{padding-left:20px;padding-right:20px}.wordmark{font-size:16px}.nav-phone{font-size:0;padding:8px 11px}.nav-phone::after{content:'Call Les';font-size:13px}.hero{min-height:58vh}.hero-inner{padding:52px 0 46px}.adl{grid-template-columns:1fr}.numbers,.basics,.gap{padding-top:54px;padding-bottom:54px}}
+@media(max-width:920px){nav.links{display:none}.hero{min-height:560px}.stat-grid{grid-template-columns:1fr}.basics-grid{grid-template-columns:1fr;gap:30px}}
+@media(max-width:560px){.wrap{padding-left:20px;padding-right:20px}.nav-inner{padding-left:20px;padding-right:20px}.wordmark{font-size:16px}.nav-phone{font-size:0;padding:8px 11px}.nav-phone::after{content:'Call Les';font-size:13px}.hero{height:calc(100svh - 75px);min-height:520px}.hero-inner{padding:52px 0 46px}.adl{grid-template-columns:1fr}.numbers,.basics,.gap{padding-top:54px;padding-bottom:54px}}
 </style>
 </head>
 <body>
